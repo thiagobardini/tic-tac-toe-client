@@ -16,6 +16,9 @@
 <body>
   <main>
     <h1>Tic Tac Toe</h1>
+
+    <hr>
+
     <form id='sign-up'>
       <h2>Sing Up</h2>
       <input type='text' name='credentials[email]' placeholder='Enter Email Here' required>
@@ -23,10 +26,19 @@
       <input type='text' name='credentials[password_confirmation]' placeholder='Enter Password Again' required>
       <button>Sign Up</button>
     </form>
+    <hr>
+    <h2>Sing In</h2>
+    <form id='sign-in'>
+      <input type='text' name='credentials[email]' placeholder='Enter Email Here' required>
+      <input type='text' name='credentials[password]' placeholder='Enter Password Here' required>
+      <button>Sign in</button>
+    </form>
+    <hr>
+
+
     </section>
     <section id="display-message">
-      <div id='error-message' ></div>
-      
+      <div id='error-message'></div>
     </section>
   </main>
 </body>
