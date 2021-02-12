@@ -48,6 +48,7 @@ const signOutSuccess = function () {
    // hide events
    $('#sign-out').hide()
    $('#change-password').hide()
+   $('#changePwAndSingOutBox').hide()
 
    $('#sign-in').show()
    $('#sign-up').show()

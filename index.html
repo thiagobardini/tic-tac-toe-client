@@ -17,7 +17,7 @@
   <main>
     <h1>Tic Tac Toe</h1>
 
-    
+
 
     <form id='sign-up'>
       <h2>Sing Up</h2>
@@ -26,21 +26,22 @@
       <input type='text' name='credentials[password_confirmation]' placeholder='Enter Password Again' required>
       <button>Sign Up</button>
     </form>
-    
+
     <form id='sign-in'>
       <h2>Sing In</h2>
       <input type='text' name='credentials[email]' placeholder='Enter Email Here' required>
       <input type='text' name='credentials[password]' placeholder='Enter Password Here' required>
       <button>Sign in</button>
     </form>
-    
-    <form id='change-password'>
-      <h2>Change Password</h2>
-      <input type='text' name='passwords[old]' placeholder='Old pw' required>
-      <input type='text' name='passwords[new]' placeholder='New pw' required>
-      <button>Change Password</button>
-    </form>
-    <button id="sign-out">Sign-Out</button>
+    <div id="changePwAndSingOutBox">
+      <form id='change-password'>
+        <h2>Change Password</h2>
+        <input type='text' name='passwords[old]' placeholder='Old pw' required>
+        <input type='text' name='passwords[new]' placeholder='New pw' required>
+        <button>Change Password</button>
+      </form>
+      <button id="sign-out">Sign-Out</button>
+    </div>
     </section>
     <section id="display-message">
       <div id='error-message' class='failure'></div>
