@@ -1,17 +1,22 @@
 const store = require('../store')
-const scss = require('../../styles/index.scss')
 
 const signUpSuccess = function (response) {
-   $('#error-message').text('Thank you for signing up!')
+   $('#success-message').text('Thank you for signing up!').addClass('.success')
    // this resets (clears) every form on the page
    $('form').trigger('reset')
 }
 
 const signUpFailure = function (response) {
-   $('#error-message').text('Sign up failed, try again!')
+   $('#error-message').text('Sign up failed, try again!').addClass('.failure')
+   $('#sign-up').trigger('reset')
 }
 
 const signInSuccess = function (response) {
+   $('#sign-up').hide()
+   $('#sign-in').hide()
+   $('#change-password').show()
+   $('#sign-out').show()
+
    console.log('response from api is ', response)
    console.log('store object originally is ', JSON.stringify(store))
 
@@ -19,20 +24,44 @@ const signInSuccess = function (response) {
 
    console.log('store object now is ', store)
 
-   $('#error-message').text('Thank you for signing in')
+   $('#success-message').text('Thank you for signing in').addClass('.success')
    $('#sign-in').trigger('reset')
-   // $('#sign-up').hide()
-   // $('#sign-in').hide()
 }
 
 const signInFailure = function (response) {
-   $('#error-message').text('Sign in failed, try again')
+   $('#error-message').text('Sign in failed, try again').addClass('.failure')
+   $('#sign-in').trigger('reset')
 }
+
+
+const changePasswordSuccess = function (response) {
+   $('#success-message').text('PW successfully changed').addClass('.success')
+   $('#change-password').trigger('reset')
+}
+
+const changePasswordFailure = function(response) {
+   $('#error-message').text('Change password failed, try again!').addClass('.failure')
+   $('#change-password').trigger('reset')
+}
+
+const signOutSuccess = function () {
+   // hide events
+   $('#sign-out').hide()
+   $('#change-password').hide()
+
+   $('#sign-in').show()
+   $('#sign-up').show()
+
+   $('#success-message').text('See you soon!').addClass('.success')
+}
+
 
 module.exports = {
    signUpSuccess,
-   signUpFailure,
+   signUpFailure,    
    signInSuccess,
-   signInFailure
-
+   signInFailure,
+   changePasswordSuccess,
+   changePasswordFailure,
+   signOutSuccess   
 }
