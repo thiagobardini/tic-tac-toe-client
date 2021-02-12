@@ -7,11 +7,11 @@ const signUpSuccess = function(response) {
 }
 
 const signUpFailure =  function(response) {
-   $('#error-message'.text('Sign up failed, try again!'))
+   $('#error-message').text('Sign up failed, try again!')
 }
 
 module.exports = {
    signUpSuccess,
    signUpFailure
-   
+
 }
