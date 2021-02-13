@@ -21,26 +21,33 @@
 
     <form id='sign-up'>
       <h2>Sing Up</h2>
-      <input type='text' name='credentials[email]' placeholder='Enter Email Here' required>
-      <input type='text' name='credentials[password]' placeholder='Enter Password Here' required>
-      <input type='text' name='credentials[password_confirmation]' placeholder='Enter Password Again' required>
-      <button>Sign Up</button>
+      <label for="credentials[email]">Email:</label>
+      <input type='text' name='credentials[email]' placeholder='email' required>
+      <label for="credentials[password]">Password:</label>
+      <input type='text' name='credentials[password]' placeholder='password' required>
+      <label for="credentials[password_confirmation]">Confirm Password:</label>
+      <input type='text' name='credentials[password_confirmation]' placeholder='re-entry password' required>
+      <button>Sign Up!</button>
     </form>
     
     <form id='sign-in'>
       <h2>Sing In</h2>
-      <input type='text' name='credentials[email]' placeholder='Enter Email Here' required>
-      <input type='text' name='credentials[password]' placeholder='Enter Password Here' required>
+      <label for="credentials[email]">Email:</label>
+      <input type='text' name='credentials[email]' placeholder='email' required>
+      <label for="credentials[password]">Password:</label>
+      <input type='text' name='credentials[password]' placeholder='password' required>
       <button>Sign in</button>
     </form>
     <div>
     <form id='change-password'>
       <h2>Change Password</h2>
-      <input type='text' name='passwords[old]' placeholder='Old pw' required>
-      <input type='text' name='passwords[new]' placeholder='New pw' required>
+      <label for="passwords[old]">Password:</label>
+      <input type='text' name='passwords[old]' placeholder='password' required>
+      <label for="passwords[new]">New Password:</label>
+      <input type='text' name='passwords[new]' placeholder='new password' required>
       <button>Change Password</button>
     </form>
-    <button id="sign-out">Sign-Out</button>
+    <button id="sign-out">Log Me Out!</button>
     </section>
     <section id="display-message">
       <div id='error-message' class='failure'></div>
