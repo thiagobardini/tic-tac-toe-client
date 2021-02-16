@@ -7,16 +7,25 @@ let playerChoice = ' '
 let gamesVictories = 0
 
 const onTrack = function (event) {
+
     // Select the exactly cell that it was clicked.
-    const cellSelected = $(event.target)
-    console.log(cellSelected)
+    const selected = $(event.target)
+    // console.log(cellSelected) Displays div selected on the game.
+    console.log(selected)
 
-    let indexCell = cellSelected.index()
-    console.log(indexCell)
+    let dataCellIndex = selected.index()
+    console.log(dataCellIndex)
 
 
+    if (selected.html('X') || selected.html('O')) {
+        return
+    } else {
+        if (playerChoice === 'X') {
+            selected.html('X')
+        }
+    }
 
-    api.GameRunner(indexCell, playerChoice)
+    api.GameRunner(dataCellIndex, playerChoice)
         .then(ui.updateGameSuccess)
         .catch(ui.updateGameFailure)
 
@@ -38,11 +47,14 @@ const onTrack = function (event) {
 
 const onCreateGame = function (event) {
     const token = store.user.token
-    $('.gameBoard').removeClass('X').removeClass('O')
-    $('#frame').show()
+    $('.box').html(' ').html(' ')
+
 
 
     ui.showBoard()
+    apiGame.CreateGame(token)
+        .then(ui.createGameSuccess)
+        .catch(ui.createGameError)
 }
 
 

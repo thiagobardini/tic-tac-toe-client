@@ -1,15 +1,15 @@
 const store = require('../store')
 
 const createNewGame = function () {
-   $('.gameBoard').trigger('reset')
-   $('#frame').hide()
+  $('.box').trigger('reset')
+  $('#frame').hide()
 }
 
 const showBoard = function () {
-   $('#frame').show()
+  $('#frame').show()
 }
 
 module.exports = {
-   createNewGame,
-   showBoard
+  createNewGame,
+  showBoard
 }

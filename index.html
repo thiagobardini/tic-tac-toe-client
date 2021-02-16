@@ -58,39 +58,38 @@
     <hr>
 
     <section id="game-controls">
-  
-    <button id="new-game" class="btn btn-primary">New Game</button>
+
+      <button id="new-game" class="btn btn-primary">New Game</button>
 
     </section>
 
 
-      <!--  Game section - The beginning  -->
-      <section id="frame">
-        <div id="p1"></div>
-        <div id="p2"></div>
+    <!--  Game section - The beginning  -->
+    <section id="frame">
+      <div id="p1"></div>
+      <div id="p2"></div>
 
-        <form action="" id="form">
+      <!-- Find a bootstrap element to center it -->
+      <center>
+        <form action="" class="form-label" id="form">
           <input type="text" id="field1" placeholder="Player 1">
           <label for="">VS</label>
           <input type="text" id="field2" placeholder="Player 2">
         </form>
+      </center>
 
-        <div class="row game-row">
-          <div class="col-4 s1 gameBoard" value=" " id="0"></div>
-          <div class="col-4 s2 gameBoard" value=" " id="1"></div>
-          <div class="col-4 s3 gameBoard" value=" " id="2"></div>
-        </div>
-        <div class="row game-row">
-          <div class="col-4 s4 gameBoard" value=" " id="3"></div>
-          <div class="col-4 s5 gameBoard" value=" " id="4"></div>
-          <div class="col-4 s6 gameBoard" value=" " id="5"></div>
-        </div>
-        <div class="row game-row">
-          <div class="col-4 s7 gameBoard" value=" " id="6"></div>
-          <div class="col-4 s8 gameBoard" value=" " id="7"></div>
-          <div class="col-4 s9 gameBoard" value=" " id="8"></div>
-        </div>
-      </section>
+      <div class="row">
+        <div class="col-4 s1 box" id="0"></div>
+        <div class="col-4 s2 box" id="1"></div>
+        <div class="col-4 s3 box" id="2"></div>
+        <div class="col-4 s4 box" id="3"></div>
+        <div class="col-4 s5 box" id="4"></div>
+        <div class="col-4 s6 box" id="5"></div>
+        <div class="col-4 s7 box" id="6"></div>
+        <div class="col-4 s8 box" id="7"></div>
+        <div class="col-4 s9 box" id="8"></div>
+      </div>
+    </section>
 
   </main>
 </body>

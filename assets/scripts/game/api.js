@@ -7,28 +7,27 @@ const CreateGame = function (data) {
 
    return $.ajax({
       method: 'POST',
-      url: config.apiUrl + '/games',
+      url: `${config.apiUrl}/games`,
       headers: {
          Authorization: 'Bearer ' + store.user.token
       }
    })
 }
 
-const GameRunner = function (indexCell, value) {
+const GameRunner = function (index, value) {
    return $.ajax({
-      method: 'PATCH',
-      url: 'https://tic-tac-toe-api-production.herokuapp.com/games/' + store.ID, 
       headers: {
-         // Access the token on the `store.user` object. This only works if we sign in first.
-         Authorization: 'Bearer ' + store.user.token
+         Authorization: `Bearer ${store.user.token}`
       },
+      url: 'https://tic-tac-toe-api-production.herokuapp.com/games/' + store.ID,
+      method: 'PATCH',
       data: {
-         "game": {
-            "cell": {
-               "index": indexCell, //curent index
-               "value": value // cunrent value
+         game: {
+            cell: {
+               index: index, // curent index
+               value: value // cunrent value
             },
-            "over": false // won true
+            over: false // won true
          }
       }
    })
@@ -36,4 +35,5 @@ const GameRunner = function (indexCell, value) {
 
 module.exports = {
    CreateGame,
+   GameRunner
 }
