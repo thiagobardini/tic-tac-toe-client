@@ -14,45 +14,84 @@
 </head>
 
 <body>
-  <main>
+  <main class="container">
     <h1>Tic Tac Toe</h1>
 
-    
+    <section id="auth">
+      <form id='sign-up'>
+        <h2>Sing Up</h2>
+        <label for="credentials[email]">Email:</label>
+        <input type='text' name='credentials[email]' placeholder='email' required>
+        <label for="credentials[password]">Password:</label>
+        <input type='text' name='credentials[password]' placeholder='password' required>
+        <label for="credentials[password_confirmation]">Confirm Password:</label>
+        <input type='text' name='credentials[password_confirmation]' placeholder='re-entry password' required>
+        <button>Sign Up!</button>
+      </form>
 
-    <form id='sign-up'>
-      <h2>Sing Up</h2>
-      <label for="credentials[email]">Email:</label>
-      <input type='text' name='credentials[email]' placeholder='email' required>
-      <label for="credentials[password]">Password:</label>
-      <input type='text' name='credentials[password]' placeholder='password' required>
-      <label for="credentials[password_confirmation]">Confirm Password:</label>
-      <input type='text' name='credentials[password_confirmation]' placeholder='re-entry password' required>
-      <button>Sign Up!</button>
-    </form>
-    
-    <form id='sign-in'>
-      <h2>Sing In</h2>
-      <label for="credentials[email]">Email:</label>
-      <input type='text' name='credentials[email]' placeholder='email' required>
-      <label for="credentials[password]">Password:</label>
-      <input type='text' name='credentials[password]' placeholder='password' required>
-      <button>Sign in</button>
-    </form>
-    <div>
-    <form id='change-password'>
-      <h2>Change Password</h2>
-      <label for="passwords[old]">Password:</label>
-      <input type='text' name='passwords[old]' placeholder='password' required>
-      <label for="passwords[new]">New Password:</label>
-      <input type='text' name='passwords[new]' placeholder='new password' required>
-      <button>Change Password</button>
-    </form>
-    <button id="sign-out">Log Me Out!</button>
+      <form id='sign-in'>
+        <h2>Sing In</h2>
+        <label for="credentials[email]">Email:</label>
+        <input type='text' name='credentials[email]' placeholder='email' required>
+        <label for="credentials[password]">Password:</label>
+        <input type='text' name='credentials[password]' placeholder='password' required>
+        <button>Sign in</button>
+      </form>
+
+      <div>
+        <form id='change-password'>
+          <h2>Change Password</h2>
+          <label for="passwords[old]">Password:</label>
+          <input type='text' name='passwords[old]' placeholder='password' required>
+          <label for="passwords[new]">New Password:</label>
+          <input type='text' name='passwords[new]' placeholder='new password' required>
+          <button>Change Password</button>
+        </form>
+        <button id="sign-out">Log Me Out!</button>
     </section>
+
     <section id="display-message">
       <div id='error-message' class='failure'></div>
       <div id='success-message' class='success'></div>
     </section>
+
+    <hr>
+
+    <section id="game-controls">
+  
+    <button id="new-game" class="btn btn-primary">New Game</button>
+
+    </section>
+
+
+      <!--  Game section - The beginning  -->
+      <section id="frame">
+        <div id="p1"></div>
+        <div id="p2"></div>
+
+        <form action="" id="form">
+          <input type="text" id="field1" placeholder="Player 1">
+          <label for="">VS</label>
+          <input type="text" id="field2" placeholder="Player 2">
+        </form>
+
+        <div class="row game-row">
+          <div class="col-4 s1 gameBoard" value=" " id="0"></div>
+          <div class="col-4 s2 gameBoard" value=" " id="1"></div>
+          <div class="col-4 s3 gameBoard" value=" " id="2"></div>
+        </div>
+        <div class="row game-row">
+          <div class="col-4 s4 gameBoard" value=" " id="3"></div>
+          <div class="col-4 s5 gameBoard" value=" " id="4"></div>
+          <div class="col-4 s6 gameBoard" value=" " id="5"></div>
+        </div>
+        <div class="row game-row">
+          <div class="col-4 s7 gameBoard" value=" " id="6"></div>
+          <div class="col-4 s8 gameBoard" value=" " id="7"></div>
+          <div class="col-4 s9 gameBoard" value=" " id="8"></div>
+        </div>
+      </section>
+
   </main>
 </body>
 

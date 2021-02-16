@@ -11,8 +11,15 @@ $(() => {
   $('#change-password').hide()
   $('#sign-out').hide()
 
+  $('#frame').hide()
+  $('#game-controls').hide()
+
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('click', authEvents.onSignOut)
+
+    // Game Config Section
+    $('#new-game').on('click', gameEvents.onCreateGame)
+    $('.gameBoard').on('click', gameEvents.onTrack)
 })

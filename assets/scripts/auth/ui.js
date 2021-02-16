@@ -16,6 +16,7 @@ const signInSuccess = function (response) {
    $('#sign-in').hide()
    $('#change-password').show()
    $('#sign-out').show()
+   $('#game-controls').show()
 
    console.log('response from api is ', response)
    console.log('store object originally is ', JSON.stringify(store))
