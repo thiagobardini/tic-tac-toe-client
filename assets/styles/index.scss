@@ -26,7 +26,7 @@ body {
 
    .box {
       display: flex;
-      font-size: 80px;
+      font-size: 100px;
       font-weight: bold;
       color: #fdfeff;
       height: 200px;
@@ -41,11 +41,18 @@ body {
 
    #p1 {
       color: white;
-      font-weight: bold;      
+      font-weight: bold;
    }
 
    #p2 {
       color: white;
-      font-weight: bold;      
+      font-weight: bold;
+   }
+
+   #jogador {
+      font-size: 38px;
    }
 }
+
+
+

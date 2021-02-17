@@ -3,33 +3,87 @@ const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields')
 const store = require('../store')
 
-let playerChoice = ' '
-let gamesVictories = 0
+// Used to storage the number of games.
+let gamesPlayed = 0
+var turn = false
+
 
 const onTrack = function (event) {
 
-    // Select the exactly cell that it was clicked.
-    const selected = $(event.target)
-    // console.log(cellSelected) Displays div selected on the game.
-    console.log(selected)
-
-    let dataCellIndex = selected.index()
-    console.log(dataCellIndex)
-
-
-    if (selected.html('X') || selected.html('O')) {
-        return
-    } else {
-        if (playerChoice === 'X') {
-            selected.html('X')
-        }
+    let cellSelected = $(event.target)
+    
+    let indexCell = cellSelected.index()
+    
+    //verifica se o botão já foi pressionado e aborta.
+    if (cellSelected.data("key") == "1") {
+        return;
     }
-
-    api.GameRunner(dataCellIndex, playerChoice)
-        .then(ui.updateGameSuccess)
-        .catch(ui.updateGameFailure)
-
+    //verifica de quem é a vez
+    if (turn) {
+        //indica a vez do jogador em questão
+        $("#player-turn").text("Player turn X");
+        $(cellSelected).html("O");
+        //marca como botão já precionado.
+        $(cellSelected).data("key", "1");
+        turn = !turn;
+    } else {
+        $("#player-turn").text("Player turn O");
+        $(cellSelected).html("X");
+        $(cellSelected).data("key", "1");
+        turn = !turn;
+    }
+    api.GameRunner(indexCell, cellSelected)
+    //         .then(ui.updateGameSuccess)
+    //         .catch(ui.updateGameFailure)
 }
+
+// const onTrack = $(document).ready(function () {
+
+//     var player = 1;
+
+//     $(".box").click(function () {
+//         if (player === 1) {
+//             $(this).text("X");
+//             player = 2;
+//         } else {
+//             $(this).text("O");
+//             player = 1;
+//         }
+//         $("#player-turn").text("Player turn: " + player)
+
+//         // api.GameRunner(dataCellIndex, playerChoice)
+//         //     .then(ui.updateGameSuccess)
+//         //     .catch(ui.updateGameFailure)
+
+//     });
+
+// });
+
+// const onTrack = function (event) {
+//     // Select the exactly cell that it was clicked.
+//     const selected = $(event.target)
+//     // console.log(cellSelected) Displays div selected on the game.
+//     console.log(selected)
+
+//     let dataCellIndex = selected.index()
+//     console.log(dataCellIndex)
+
+//     let player = 1
+//     const selected = $(event.target)
+
+//     if (player == 1) {
+//         $(this).text("X");
+//         player = 2;
+//     } else {
+//         $(this).text("O");
+//         player = 1;
+
+
+//     api.GameRunner(dataCellIndex, playerChoice)
+//         .then(ui.updateGameSuccess)
+//         .catch(ui.updateGameFailure)
+
+// }
 
 // const X_CLASS = "x";
 // const O_CLASS = "o";
@@ -43,6 +97,10 @@ const onTrack = function (event) {
 //       [0, 4, 8],
 //       [2, 4, 6],
 // ];
+
+
+
+
 
 
 const onCreateGame = function (event) {
@@ -61,4 +119,6 @@ const onCreateGame = function (event) {
 module.exports = {
     onCreateGame,
     onTrack
+
+
 }
