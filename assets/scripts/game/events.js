@@ -41,7 +41,6 @@ const onTrack = function (event) {
             playerO.push(index)
 
             /// DELETE
-            console.log(turn + ' é verdade? 1')
             console.log(index + ' index print 1')
             console.log(playerO + ' array X')
 
@@ -52,7 +51,6 @@ const onTrack = function (event) {
             $(value).data("key", "1")
             playerX.push(index)
             /// DELETE
-            console.log(`${turn} é verdade? 2`)
             console.log(index + ' index print 2')
             console.log(playerX + ' array X')
 
