@@ -61,8 +61,8 @@ const onTrack = function (event) {
         console.log('Result: ' + playerX)
         console.log(`Result: ${playerO}`)
 
-        // FIX IT
-        // TODO
+        
+        // FIXME
         // I don't know how to check if I have any of these combinations
         // if (playerX.includes(0, 1, 2) || playerX.includes(3, 4, 5) || playerX.includes(6, 7, 8) || playerX.includes(0, 3, 6) || playerX.includes(1, 4, 7) || playerX.includes(2, 5, 8) || playerX.includes(0, 4, 8) || playerX.includes(2, 4, 6)) {
         //     alert(true)
@@ -78,8 +78,8 @@ const onTrack = function (event) {
     console.log("oi ", playerO)
     console.log("oi ", playerX)
 
-    // FIX IT
-// TODO -> API follow the instructions
+
+// FIXME -> API follow the instructions
     // api.ameRunner(indexCell, cellSelected)
     // //         .then(ui.updateGameSuccess)
     // //         .catch(ui.updateGameFailure)
