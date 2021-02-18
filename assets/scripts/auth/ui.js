@@ -24,6 +24,8 @@ const signInSuccess = function (response) {
   $('#change-password').show()
   $('#sign-out').show()
   $('#game-controls').show()
+  $('#frame').show()
+  $('#signOutHide').show()
 
   console.log('response from api is ', response)
   console.log('store object originally is ', JSON.stringify(store))
@@ -73,6 +75,7 @@ const signOutSuccess = function () {
   // hide game
   $('#game-controls').hide()
   $('#frame').hide()
+  $("#signOutHide").hide()
 
   $('#success-message').text('See you soon!').addClass('.success')
 

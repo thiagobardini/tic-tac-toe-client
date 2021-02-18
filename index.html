@@ -11,82 +11,131 @@
   <!-- Do not add `script` tags-->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-  
+
 </head>
 
 <body>
   <main class="container">
-    <h1>Tic Tac Toe</h1>
+    <div id="signOutHide" class="col-xl-12">
+      <!-- Small modal -->
+      <button id="signOutButton" type="button" class="btn btn-outline-dark" data-toggle="modal"
+        data-target=".bd-example-modal-sm">User
+        Configuration</button>
 
-    <section id="auth">
-      <form id='sign-up'>
-        <h2>Sing Up</h2>
-        <label for="credentials[email]">Email:</label>
-        <input type='text' name='credentials[email]' placeholder='email' required>
-        <label for="credentials[password]">Password:</label>
-        <input type='text' name='credentials[password]' placeholder='password' required>
-        <label for="credentials[password_confirmation]">Confirm Password:</label>
-        <input type='text' name='credentials[password_confirmation]' placeholder='re-entry password' required>
-        <button>Sign Up!</button>
-      </form>
+      <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-auto">
+          <div class="modal-content">
 
-      <form id='sign-in'>
-        <h2>Sing In</h2>
-        <label for="credentials[email]">Email:</label>
-        <input type='text' name='credentials[email]' placeholder='email' required>
-        <label for="credentials[password]">Password:</label>
-        <input type='text' name='credentials[password]' placeholder='password' required>
-        <button>Sign in</button>
-      </form>
+            <form id='change-password' class="form-control my-5">
+              <h1 class="h3 mb-3 font-weight-normal">Change password</h1>
+              <label for="passwords[old]" class="sr-only">Password:</label>
+              <input type="password" name='passwords[old]' id="inputPassword" class="form-control"
+                placeholder="Old assword" required>
 
-      <div>
-        <form id='change-password'>
-          <h2>Change Password</h2>
-          <label for="passwords[old]">Password:</label>
-          <input type='text' name='passwords[old]' placeholder='password' required>
-          <label for="passwords[new]">New Password:</label>
-          <input type='text' name='passwords[new]' placeholder='new password' required>
-          <button>Change Password</button>
-        </form>
-        <button id="sign-out">Log Me Out!</button>
-    </section>
+              <label for="passwords[new]" class="sr-only">Confirm password</label>
+              <input type="password" name='passwords[new]' id="inputPassword" class="form-control"
+                placeholder="New password" required>
 
-    <section id="display-message">
-      <div id='error-message' class='failure'></div>
-      <div id='success-message' class='success'></div>
-    </section>
+              <button class="btn btn-lg btn-primary btn-block mb-5" type="submit">Change password</button>
+            </form>
+            <form id="sign-out" class="form-signout pt-5">
+              <button class="btn btn-lg btn-primary btn-block my-5" type="submit">Log out</button>
+            </form>
 
-    <hr>
-
-    <section id="game-controls">
-
-      <button id="new-game" class="btn btn-primary">New Game</button>
-
-    </section>
-
-
-    <!--  Game section - The beginning  -->
-    <section id="frame">
-      <div class="p1"></div>
-      <div class="p2"></div>
-
-      <!-- Find a bootstrap element to center it -->
-      <div>
-      <div id="player-turn">Player turn X</div>
-      <div id="winner-msg"></div>
-    </div>
-      <div class="row">
-        <div class="col-4 s1 box" id="0"></div>
-        <div class="col-4 s2 box" id="1"></div>
-        <div class="col-4 s3 box" id="2"></div>
-        <div class="col-4 s4 box" id="3"></div>
-        <div class="col-4 s5 box" id="4"></div>
-        <div class="col-4 s6 box" id="5"></div>
-        <div class="col-4 s7 box" id="6"></div>
-        <div class="col-4 s8 box" id="7"></div>
-        <div class="col-4 s9 box" id="8"></div>
+          </div>
+        </div>
       </div>
-  </section>
+    </div>
+
+
+    <div class="row text-center py-4">
+      <div class="col-md-12">
+        <img class="mb-4" src="./assets/styles/img/logo.png" alt="" width="200" height="200">
+        <h1 class="mb-6">Tic Tac Toe</h1>
+      </div>
+
+      <div class="col-md-6">
+        <form id='sign-up' class="form-signin">
+          <h1 class="h3 mb-3 font-weight-normal">Sign up</h1>
+
+          <label for="credentials[email]" class="sr-only">Email address</label>
+          <input type="email" id="inputEmail" name='credentials[email]' class="form-control" placeholder="Email address"
+            required autofocus>
+
+          <label for="credentials[password]" class="sr-only">Password</label>
+          <input type="password" name='credentials[password]' id="inputPassword" class="form-control"
+            placeholder="Password" required>
+
+          <label for="credentials[password_confirmation]" class="sr-only">Confirm password</label>
+          <input type="password" name='credentials[password_confirmation]' id="inputPassword" class="form-control"
+            placeholder="Password" required>
+
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+        </form>
+      </div>
+
+      <div class="col-md-6">
+        <form id='sign-in' class="form-signin">
+          <h1 class="h3 mb-3 font-weight-normal ">Sign in</h1>
+
+          <label for="credentials[email]" class="sr-only">Email address</label>
+          <input type="email" id="inputEmail" name='credentials[email]' class="form-control" placeholder="Email address"
+            required autofocus>
+
+          <label for="credentials[password]" class="sr-only">Password</label>
+
+          <input type="password" name='credentials[password]' id="inputPassword" class="form-control"
+            placeholder="Password" required>
+
+          <div class="checkbox mb-2">
+            <label>
+              <input type="checkbox" value="remember-me"> Remember me
+            </label>
+          </div>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form>
+      </div>
+
+      <section id="display-message" class="col-12">
+        <div id='error-message' class='failure'></div>
+        <div id='success-message' class='success'></div>
+      </section>
+
+      <section id="game-controls" class="col-12">
+
+        <button id="new-game" class="btn btn-primary">New Game</button>
+        <button id="reset-game" class="btn btn-primary">Reset Game</button>
+
+      </section>
+
+
+      <!--  Game section - The beginning  -->
+      <section id="frame">
+
+        <!-- Find a bootstrap element to center it -->
+        <div>
+          <div id="player-turn">Player "X" turn!</div>
+          <div id="winner-msg"></div>
+        </div>
+        <div class="row">
+          <div class="col-4 s1 box" id="0"></div>
+          <div class="col-4 s2 box" id="1"></div>
+          <div class="col-4 s3 box" id="2"></div>
+          <div class="col-4 s4 box" id="3"></div>
+          <div class="col-4 s5 box" id="4"></div>
+          <div class="col-4 s6 box" id="5"></div>
+          <div class="col-4 s7 box" id="6"></div>
+          <div class="col-4 s8 box" id="7"></div>
+          <div class="col-4 s9 box" id="8"></div>
+        </div>
+      </section>
+
+      <!-- footer -->
+      <div class="col-xl-12">
+        <p class="mt-5 mb-3 text-muted">Thiago Bardini &copy; 2021</p>
+      </div>
+
   </main>
 </body>
 

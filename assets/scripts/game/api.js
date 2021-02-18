@@ -1,7 +1,7 @@
 const config = require('../config')
 const store = require('../store')
 
-const CreateGame = function (data) {
+const createGame = function (data) {
    console.log('data is ', data)
    console.log('store is ', store)
 
@@ -14,7 +14,7 @@ const CreateGame = function (data) {
    })
 }
 
-const GameRunner = function (index, value) {
+const gameRunner = function (index, value, over) {
    return $.ajax({
       headers: {
          Authorization: `Bearer ${store.user.token}`
@@ -27,13 +27,13 @@ const GameRunner = function (index, value) {
                index: index, // curent index
                value: value // cunrent value
             },
-            over: false // won true
+            over: over // won true
          }
       }
    })
 }
 
 module.exports = {
-   CreateGame,
-   GameRunner
+   createGame,
+   gameRunner
 }
