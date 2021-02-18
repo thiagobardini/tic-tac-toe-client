@@ -28,12 +28,12 @@ The user will have to create an account to get access to the game, once the user
 
 ### Unsolved Problems
 
-- Still need to fix sign out.
+- Still need to fix log out.
 - Still need to fix API comunication
 - Still need to fix a few lines of code to to run game correctly
-- Still need to create the number of victories.
+- Still need to create the number of game played it.
 
-- Would like to eventually a redeisgn more responsive.
+- Would like to eventually a redesign more responsive.
 
 #### Tic Tac Toe Game (version 1)
 **Desktop Version - Sign In & Sign Out**
