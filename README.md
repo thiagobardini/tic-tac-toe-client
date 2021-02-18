@@ -42,6 +42,5 @@ The user will have to create an account to get access to the game, once the user
 **Desktop Version**
 ![wireframe-desktop](https://i.imgur.com/nEtRii7.png)
 ![wireframe-desktop](https://i.imgur.com/NTVqMFt.png)
-![wireframe-desktop](https://i.imgur.com/pwEVYYJ.png)
 **Mobile Version**
 ![wireframe](https://i.imgur.com/PiyKfBR.png)
