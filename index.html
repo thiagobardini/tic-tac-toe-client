@@ -25,22 +25,22 @@
       <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-auto">
-          <div class="modal-content">
+          <div class="modal-content px-3">
 
-            <form id='change-password' class="form-control my-5">
-              <h1 class="h3 mb-3 font-weight-normal">Change password</h1>
+            <form id='change-password' >
+              <h2 class="font-weight-normal">Change Your Password</h2>
               <label for="passwords[old]" class="sr-only">Password:</label>
-              <input type="password" name='passwords[old]' id="inputPassword" class="form-control"
+              <input type="password" name='passwords[old]' class="form-control"
                 placeholder="Old assword" required>
 
               <label for="passwords[new]" class="sr-only">Confirm password</label>
-              <input type="password" name='passwords[new]' id="inputPassword" class="form-control"
+              <input type="password" name='passwords[new]' class="form-control"
                 placeholder="New password" required>
 
-              <button class="btn btn-lg btn-primary btn-block mb-5" type="submit">Change password</button>
+              <button class="btn btn-md btn-dark btn-block mb-2" type="submit">Change password</button>
             </form>
-            <form id="sign-out" class="form-signout pt-5">
-              <button class="btn btn-lg btn-primary btn-block my-5" type="submit">Log out</button>
+            <form id="sign-out" class="form-signout">
+              <button class="btn btn-md btn-dark btn-block mb-2" type="submit">Log out</button>
             </form>
 
           </div>
@@ -51,7 +51,7 @@
 
     <div class="row text-center py-4">
       <div class="col-md-12">
-        <img class="mb-4" src="./assets/styles/img/logo.png" alt="" width="200" height="200">
+        <img class="mb-4" src="https://i.imgur.com/DEJNSyx.png" alt="" width="200" height="200">
         <h1 class="mb-6">Tic Tac Toe</h1>
       </div>
 
@@ -60,15 +60,15 @@
           <h1 class="h3 mb-3 font-weight-normal">Sign up</h1>
 
           <label for="credentials[email]" class="sr-only">Email address</label>
-          <input type="email" id="inputEmail" name='credentials[email]' class="form-control" placeholder="Email address"
+          <input type="email"  name='credentials[email]' class="form-control" placeholder="Email address"
             required autofocus>
 
           <label for="credentials[password]" class="sr-only">Password</label>
-          <input type="password" name='credentials[password]' id="inputPassword" class="form-control"
+          <input type="password" name='credentials[password]' class="form-control"
             placeholder="Password" required>
 
           <label for="credentials[password_confirmation]" class="sr-only">Confirm password</label>
-          <input type="password" name='credentials[password_confirmation]' id="inputPassword" class="form-control"
+          <input type="password" name='credentials[password_confirmation]' class="form-control"
             placeholder="Password" required>
 
           <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
@@ -80,12 +80,12 @@
           <h1 class="h3 mb-3 font-weight-normal ">Sign in</h1>
 
           <label for="credentials[email]" class="sr-only">Email address</label>
-          <input type="email" id="inputEmail" name='credentials[email]' class="form-control" placeholder="Email address"
+          <input type="email" name='credentials[email]' class="form-control" placeholder="Email address"
             required autofocus>
 
           <label for="credentials[password]" class="sr-only">Password</label>
 
-          <input type="password" name='credentials[password]' id="inputPassword" class="form-control"
+          <input type="password" name='credentials[password]' class="form-control"
             placeholder="Password" required>
 
           <div class="checkbox mb-2">
