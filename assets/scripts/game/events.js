@@ -25,11 +25,11 @@ const onTrack = function (event) {
         if (value.data("key") === "1") {
             /// DELETE
             alert(value.data("key") === "1")
-            // se o valor for 1 nao é possivel pressionar de novo
+
             return
         }
 
-        // checl the player's turn
+        // Check the player's turn
         else if (turn) {
 
             // Show a player X turn
@@ -61,11 +61,12 @@ const onTrack = function (event) {
         console.log('Result: ' + playerX)
         console.log(`Result: ${playerO}`)
 
-
-        // // I don't know how to check if I have any of these combinations
+        // FIX IT
+        // TODO
+        // I don't know how to check if I have any of these combinations
         // if (playerX.includes(0, 1, 2) || playerX.includes(3, 4, 5) || playerX.includes(6, 7, 8) || playerX.includes(0, 3, 6) || playerX.includes(1, 4, 7) || playerX.includes(2, 5, 8) || playerX.includes(0, 4, 8) || playerX.includes(2, 4, 6)) {
         //     alert(true)
-        // } else if ( playerO.includes(0, 1, 2) ||  playerO.includes(3, 4, 5) ||  playerO.includes(6, 7, 8) ||  playerO.includes(0, 3, 6) ||  playerO.includes(1, 4, 7) ||  playerO.includes(2, 5, 8) || playerO.includes(0, 4, 8) || playerO.includes(2, 4, 6)) {
+        // } else if (playerO.includes(0, 1, 2) || playerO.includes(3, 4, 5) || playerO.includes(6, 7, 8) || playerO.includes(0, 3, 6) || playerO.includes(1, 4, 7) || playerO.includes(2, 5, 8) || playerO.includes(0, 4, 8) || playerO.includes(2, 4, 6)) {
         //     `${"#winner-msg"}.html("Victory O")`
         // } else if (playerX && playerO.lenght === 5) {
         //     `${"#winner-msg"}.html("TIE")`
@@ -77,7 +78,8 @@ const onTrack = function (event) {
     console.log("oi ", playerO)
     console.log("oi ", playerX)
 
-
+    // FIX IT
+// TODO -> API follow the instructions
     // api.ameRunner(indexCell, cellSelected)
     // //         .then(ui.updateGameSuccess)
     // //         .catch(ui.updateGameFailure)
@@ -97,10 +99,10 @@ const onCreateGame = function (event) {
 
 const onResetGame = function (event) {
     $('.box').html($('.box').html().replace('X', ''))
-    
+
     $('.box').removeData("key", "")
     $('.box').removeData("key", "")
-    
+
     // Set the numbers of victories to zero in case, the user decides to reset.
     // gamesVictories = 0
     $('#number-wins').html('<b> Number of wins: </b>')
