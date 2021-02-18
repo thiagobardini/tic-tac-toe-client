@@ -1,9 +1,5 @@
 ## The Tic Toe - Game Project
 ![logo](https://i.imgur.com/DEJNSyx.png)
-
-This application allows the user to do x, y, and z. Maybe here's a reason why I wanted to do this project, or
-came up with this idea.
-
 ## Important Links
 
 - [Tic Tac Toe Game](https://github.com/thiagobardini/tic-tac-toe-client)
