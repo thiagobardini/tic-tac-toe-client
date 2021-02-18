@@ -1,42 +1,51 @@
-# Application Title: A Description
+## The Tic Toe - Game Project
+![logo](https://i.imgur.com/DEJNSyx.png)
 
 This application allows the user to do x, y, and z. Maybe here's a reason why I wanted to do this project, or
 came up with this idea.
 
 ## Important Links
 
-- [Other Repo](www.link.com)
-- [Deployed API](www.link.com)
-- [Deployed Client](www.link.com)
-
-## Planning Story
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ornare magna. Curabitur leo arcu, elementum in posuere vitae, rutrum eu urna. Quisque tincidunt nulla sed mi cursus, nec tristique est fermentum. Etiam lacinia id neque ut egestas. Sed consequat convallis felis nec posuere. Sed non eros sed velit viverra tincidunt. Etiam et tortor sit amet lacus volutpat dignissim. Vestibulum convallis, felis a posuere pretium, turpis enim sollicitudin neque, pretium finibus leo metus sed sapien. Praesent iaculis pharetra nunc ac rhoncus. Duis eu risus in est porttitor egestas sit amet eget metus. Maecenas iaculis auctor ullamcorper. Donec pretium dolor non nisl egestas bibendum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ullamcorper pulvinar orci interdum mattis. Ut gravida volutpat mauris, a semper risus maximus ut.
+- [Tic Tac Toe Game](https://github.com/thiagobardini/tic-tac-toe-client)
+- [Deployed API](https://tic-tac-toe-api-development.herokuapp.com')
+- [Deployed Client](https://github.com/thiagobardini/tic-tac-toe-client)
 
 ### User Stories
+As a user, I want to create an account and be able to login in As a user, I want to be able to play the game and reset the game as I wish As a user, I want to see the number of games played I have As a user, I want to be able to reset my password As a user, I want to be able to secure the log out of the website.
 
-- As a user I want to sign in/up
-- As a user I want to Create a new < resource >
-- As a user I want to Read multiple < resources >
-- As a user I want to Read a single < resource >
-- As a user I want to Update a < resource > I own
-- As a user I want to Delete a < resource > I own
+### Planning Story
+The user will have to create an account to get access to the game, once the user is log in, he will receive options on the page, such as to play the game, start a new game and reset, change password and logout.
 
 ### Technologies Used
 
-- jQuery
-- HTML/CSS
+- HTML
+- SCSS
+- JavaScript
+- JQuery
+- Ajax
+- Auth & Game API
 - Bootstrap
-- Javascript
 
 ### Unsolved Problems
 
-- Still need to ....
-- Would like to eventually ....
+- Still need to fix sign out.
+- Still need to fix API comunication
+- Still need to fix a few lines of code to to run game correctly
+- Still need to create the number of victories.
 
-## Images
+- Would like to eventually a redeisgn more responsive.
 
----
-
+#### Tic Tac Toe Game (version 1)
+**Desktop Version - Sign In & Sign Out**
+![1](https://i.imgur.com/ZcfO1IG.png)
+**Desktop Version - Game board & New Game & Reset Game**
+![2](https://i.imgur.com/Q2PkFqR.png)
+**Desktop Version - **Change Password & Log Out**
+![3](https://i.imgur.com/Xuetx8q.png)
 #### Wireframe:
-![wireframe](https://lucidchart.zendesk.com/hc/article_attachments/360001080866/Facebook_Wireframe_-_New_Page.png)
+**Desktop Version**
+![wireframe-desktop](https://i.imgur.com/nEtRii7.png)
+![wireframe-desktop](https://i.imgur.com/NTVqMFt.png)
+![wireframe-desktop](https://i.imgur.com/pwEVYYJ.png)
+**Mobile Version**
+![wireframe](https://i.imgur.com/PiyKfBR.png)
