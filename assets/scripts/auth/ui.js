@@ -68,7 +68,6 @@ const changePasswordFailure = function (response) {
 const signOutSuccess = function () {
   // hide events
   $('#sign-out').hide()
-  $('#signOutButton').hide()
 
   $('#change-password').hide()
   // show sign-in and sign-up

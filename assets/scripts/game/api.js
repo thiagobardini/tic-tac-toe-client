@@ -2,15 +2,16 @@ const config = require('../config')
 const store = require('../store')
 
 const createGame = function (data) {
-   console.log('data is ', data)
-   console.log('store is ', store)
+   console.log('data is ', data)  // XXX DELETE
+   console.log('store is ', store) // XXX DELETE
 
    return $.ajax({
       method: 'POST',
       url: `${config.apiUrl}/games`,
       headers: {
          Authorization: 'Bearer ' + store.user.token
-      }
+      },
+      data: data
    })
 }
 
