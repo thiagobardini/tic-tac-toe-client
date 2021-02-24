@@ -28,12 +28,17 @@ const onTrack = function (event) {
             // Checks if the button already clicked.
             $(value).data("key", "1")
             playerO.push(index)
+
+            // XXX DELETE
+            console.log(index + ' index print 1')
             turn = !turn;
         } else {
             $("#player-turn").text("Player 'O' turn!")
             $(value).html("X")
             $(value).data("key", "1")
             playerX.push(index)
+            /// DELETE
+            console.log(index + ' index print 2')
             turn = !turn
         }
     }
@@ -49,15 +54,15 @@ const onTrack = function (event) {
             [2, 4, 6]
         ]
         for (let i = 0; i < 9; i++) {
-            
+
             if (combo[i].every(val => p1.includes(val)) === true) {
                 console.log('Player X Won') // XXX Delete
                 $("#winner-msg").text('Player X Won')
-                console.log('Score X: ', ++playerXScore) // BUG soma vitorias do player o tbm
+                console.log('Score X: ', ++playerXScore)
             } else if (combo[i].every(val => p2.includes(val)) === true) {
                 console.log('player O Won') // XXX Delete
                 $("#winner-msg").text('Player O Won')
-                console.log('Score O: ', ++playerOScore) // BUG soma vitorias do player o tbm
+                console.log('Score O: ', ++playerOScore)
                 return true
             } else {
                 false
@@ -65,7 +70,6 @@ const onTrack = function (event) {
         }
     }
     checkCombinations(playerX, playerO)
-
 
     // FIXME -> API follow the instructions
     api.GameRunner(indexCell, cellSelected, checkCombinations())

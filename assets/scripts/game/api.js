@@ -24,8 +24,8 @@ const gameRunner = function (index, value, over) {
       data: {
          game: {
             cell: {
-               index: index, // curent index
-               value: value // cunrent value
+               index: index, // current index   
+               value: value // current value
             },
             over: over // won true
          }
