@@ -33,7 +33,19 @@ const createGame = function (data) {
 //    })
 // }
 
+const viewGames = () => {
+  console.log('got games')
+  return $.ajax({
+    url: `${config.apiUrl}/games/`,
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    }
+  })
+}
+
 module.exports = {
-   createGame
+   createGame,
+   viewGames
    
 }

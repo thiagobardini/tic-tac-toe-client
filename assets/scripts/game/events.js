@@ -87,7 +87,18 @@ const onTrack = function (event) {
   //   .catch(ui.updateGameFailure);
 };
 
+// Function to get status of the game
+const onGameStatus = () => {
+  api.viewGames()  // getAllGames
+  .then((response) => {
+    // passar o resultado 'response' para ui
+    console.log(response)
+  })
+  .catch(ui.createGameError)
+}
+
+
 module.exports = {
   onCreateGame,
-  
+  onGameStatus
 };
