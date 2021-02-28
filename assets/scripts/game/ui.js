@@ -8,8 +8,10 @@ const createNewGame = function () {
 };
 
 const createGameSuccess = function () {
+  console.log("in create game")
   $("#frame").show();
   $("#success-message").text("Let's Play!");
+
 };
 
 const showBoard = function () {
@@ -22,17 +24,24 @@ const createGameFailure = function () {
 
 // XXX REVER
 const viewGameBoardSuccess = function (res) {
-  store.game = res.game
-  store.gameOver = res.game.over
-  console.log(`${store.game} testando`)
-  let game = store.user.token
+  const gameList = Array.from(res.games)
+  
   // store.gameOver = res.game.over
   $("#frame").hide();
+  let storyHTML = ""
+  for (const game of gameList) {
+    storyHTML += `
+      <div>
+        <p>GAME_ID: ${game._id}</p>
+      </div>
+    `
 
-  $('.viewTitle').text('History Game');
-  $(".viewID").html(`ID: ${game._id}`);
-  // $(".viewCells").html(`: ${store.gameOver}`);
-  // $(".viewOver").html(`: ${games.createdAt}`);
+    // $('.viewTitle').text('History Game
+    // $(".viewID").html(`ID: ${game._id}`);
+    // $(".viewCells").html(`: ${game.over}`);
+    // $(".viewOver").html(`: ${game.createdAt}`);`
+  }
+  $('#viewGameBoard').html(storyHTML)
 
 };
 

@@ -25,12 +25,7 @@ const signInSuccess = function (response) {
   $('#sign-out').show()
   $('#game-controls').show()
   $('#signOutHide').show()
-
-  console.log('response from api is ', response)
-  console.log('store object originally is ', JSON.stringify(store))
-
-  store.user = response.user
-
+  
   $('#success-message').text('Thank you for signing in').addClass('.success')
   $('#sign-in').trigger('reset')
   setTimeout(function () {

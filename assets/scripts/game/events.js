@@ -4,128 +4,142 @@ const getFormFields = require("../../../lib/get-form-fields");
 const store = require("../store");
 
 // Used to storage the number of games.
-store.currentTurn = true
-store.currentTurnValue = ''
-store.userData = {
+store.currentTurn = true;
+store.currentTurnValue = "";
+store.data = {
   game: {
     cell: {},
-    over: false
-  }
-}
+    over: false,
+  },
+};
 
-let gameFinished = false
+let gameFinished = false;
+
+const hasWinCase = (game) => {
+  const combo = [
+    [0, 1, 2],
+    [0, 3, 6],
+    [0, 4, 8],
+    [1, 4, 7],
+    [2, 5, 8],
+    [2, 4, 6],
+    [3, 4, 5],
+    [6, 7, 8],
+  ];
+
+  const winnersArr = ["XXX", "OOO"];
+
+  const mappedCombo = combo.map((arr) => {
+    let result = "";
+    arr.forEach((i) => {
+      result += game.cells[i] === "X" ? "X" : "0";
+    });
+    return winnersArr.includes(result);
+  });
+
+  return mappedCombo.filter((e) => e)[0];
+};
+
+const checkEndGame = (game, box) => {
+  const data = {
+    game: {
+      cell: {
+        index: $(box).data("cell-index"),
+        value: store.currentTurnValue,
+      },
+      over: true,
+    },
+  };
+
+  if (hasWinCase(game)) {
+    console.log(`Victory! \n\n GAME_CELLS: ${game.cells} \n\n BOX: ${box}`);
+    // ui 
+    $(".box").off("click", onTrack);
+
+    gameFinished = true;
+
+    api.updateGame(data).then((response) => console.log(response));
+  } else if (!game.cells.includes("")) {
+    console.log(`Tie: \n\n GAME_OBJECT: ${game}`);
+
+    $(".box").off("click", onTrack);
+
+    gameFinished = true;
+
+    api.updateGame(data).then((response) => console.log(response));
+  }
+
+  return game;
+};
 
 const setCurrentValues = (event) => {
-  const value = $(event.target)
-  const box = event.target
-  store.currentTurn = !store.currentTurn
-  store.userData.game.cell.index = $(box).data('cell-index')
+  const value = $(event.target);
+  const box = event.target;
+  store.currentTurn = !store.currentTurn;
+  store.data.game.cell.index = $(box).data("cell-index");
 
-  if(store.currentTurn) {
-    store.userData.game.cell.value = 'O'
-    $("#player-turn").text("Player 'X' turn!")
-    $(value).html("O")
-    $(value).data("key", "1")
+  if (store.currentTurn) {
+    store.data.game.cell.value = "O";
+    $("#player-turn").text("Player 'X' turn!");
+    $(value).html("O");
+    $(value).data("key", "1");
   } else {
-    store.userData.game.cell.value = 'X'
-    $("#player-turn").text("Player 'O' turn!")
-    $(value).html("X")
-    $(value).data("key", "1")
+    store.data.game.cell.value = "X";
+    $("#player-turn").text("Player 'O' turn!");
+    $(value).html("X");
+    $(value).data("key", "1");
+  }
+};
+
+const onTrack = async(event) => {
+  setCurrentValues(event);
+
+  if (gameFinished) {
+    checkEndGame(store.data, event.target);
+  } else {
+    await api
+      .updateGame(store.data)
+      .then((response) => {
+        checkEndGame(response.game, event.target);
+      })
+      .catch(ui.updateGameFailure);
   }
 
-}
-
-
-// const onTrack = function (event) {
-  // let cellSelected = $(event.target);
-  // let indexCell = cellSelected.index();
-  // step1(indexCell, cellSelected);
-  // //Checks if the button has already been clicked (=== 1) or return
-  // function step1(index, value) {
-  //   if (value.data("key") === "1") {
-  //     return;
-  //   }
-  //   // Check the player's turn
-  //   else if (turn) {
-  //     // Show a player X turn
-  //     $("#player-turn").text("Player 'X' turn!");
-  //     $(value).html("O");
-  //     // Checks if the button already clicked.
-  //     $(value).data("key", "1");
-  //     playerO.push(index);
-  //     turn = !turn;
-  //   } else {
-  //     $("#player-turn").text("Player 'O' turn!");
-  //     $(value).html("X");
-  //     $(value).data("key", "1");
-  //     playerX.push(index);
-  //     turn = !turn;
-  //   }
-  // }
-  // function checkCombinations(p1, p2) {
-  //   const combo = [
-  //     [0, 1, 2],
-  //     [3, 4, 5],
-  //     [6, 7, 8],
-  //     [0, 3, 6],
-  //     [1, 4, 7],
-  //     [2, 5, 8],
-  //     [0, 4, 8],
-  //     [2, 4, 6],
-  //   ];
-  //   for (let i = 0; i < 9; i++) {
-  //     if (combo[i].every((val) => p1.includes(val)) === true) {
-  //       console.log("Player X Won"); // XXX Delete
-  //       $("#winner-msg").text("Player X Won");
-  //       console.log("Score X: ", ++playerXScore); // BUG soma vitorias do player o tbm
-  //     } else if (combo[i].every((val) => p2.includes(val)) === true) {
-  //       console.log("player O Won"); // XXX Delete
-  //       $("#winner-msg").text("Player O Won");
-  //       console.log("Score O: ", ++playerOScore); // BUG soma vitorias do player o tbm
-  //       return true;
-  //     } else {
-  //       false;
-  //     }
-  //   }
-  // }
-  // checkCombinations(playerX, playerO);
-
-  // // FIXME -> API follow the instructions
-  // api
-  //   .GameRunner(indexCell, cellSelected, checkCombinations())
-  //   .then(ui.updateGameSuccess)
-  //   .catch(ui.updateGameFailure);
-// };
-
-
-
+  console.log("finished the turn");
+};
 
 const onCreateGame = (event) => {
-   const token = store.user.token
+  const token = store.user.token;
   $(".box").html(" ").html(" ");
-  $('.box').on('click', onTrack)
-  ui.showBoard()
-  api.createGame()
-    .then(ui.createGameSuccess)
+  $(".box").on("click", onTrack);
+  ui.showBoard();
+  $("#viewGameBoard").hide();
+  api
+    .createGame()
+
+    .then((response) => {
+      store.game = response.game;
+      store.gameOver = false;
+      ui.createGameSuccess();
+    })
     .catch(ui.createGameFailure);
 };
 
 // Function to get status of the game
 const onGameHistory = () => {
-  $('#viewGameBoard').show()
-  api.viewGames()  
-  .then((res) => {
-      // BUG Waiting for update function
-    ui.viewGameBoardSuccess()
-    console.log(`${res} onGameHistory res`)
-  })
-  .catch(ui.viewGameBoardFailure)
-}
-
-
-
+  $("#viewGameBoard").show();
+  api
+    .viewGames()
+    .then((response) => {
+      
+      ui.viewGameBoardSuccess(response);
+      console.log(`${res} onGameHistory res`);
+    })
+    .catch(ui.viewGameBoardFailure);
+};
 
 module.exports = {
   onCreateGame,
-  onGameHistory
+  onTrack,
+  onGameHistory,
 };

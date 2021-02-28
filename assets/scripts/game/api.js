@@ -26,24 +26,17 @@ const updateGame = (data) => {
   })
 }
 
-// const gameRunner = function (index, value, over) {
-//    return $.ajax({
-//       headers: {
-//          Authorization: `Bearer ${store.user.token}`
-//       },
-//       url: 'https://tic-tac-toe-api-production.herokuapp.com/games/' + store.ID,
-//       method: 'PATCH',
-//       data: {
-//          game: {
-//             cell: {
-//                index: index, // current index   
-//                value: value // current value
-//             },
-//             over: over // won true
-//          }
-//       }
-//    })
-// }
+
+const getAllGames = () => {
+  console.log('got games')
+  return $.ajax({
+    url: `${config.apiUrl}/games/`,
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    }
+  })
+}
 
 const viewGames = () => {
   console.log('got games') // XXX delete
@@ -58,6 +51,7 @@ const viewGames = () => {
 
 module.exports = {
    createGame,
-   viewGames
-   
+   viewGames,
+   updateGame,
+   getAllGames
 }
