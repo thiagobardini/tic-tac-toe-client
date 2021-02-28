@@ -16,8 +16,9 @@
 
 <body>
   <main class="container">
+
     <div id="signOutHide" class="col-xl-12">
-      <!-- Small modal -->
+
       <button id="signOutButton" type="button" class="btn btn-outline-dark" data-toggle="modal"
         data-target=".bd-example-modal-sm">User
         Configuration</button>
@@ -26,27 +27,25 @@
         aria-hidden="true">
         <div class="modal-dialog modal-auto">
           <div class="modal-content px-3">
-
-            <form id='change-password' >
+            <form id='change-password'>
               <h5 class="font-weight-normal mt-2">Change Your Password</h5>
-              <label for="passwords[old]" class="sr-only">Password:</label>
-              <input type="password" name='passwords[old]' class="form-control"
-                placeholder="Old Password" required>
-
-              <label for="passwords[new]" class="sr-only">Confirm password</label>
-              <input type="password" name='passwords[new]' class="form-control"
-                placeholder="New password" required>
-              <button class="btn btn-md btn-dark btn-block mb-2" type="submit">Change password</button>
+              <div class="form-group">
+                <input type="password" name='passwords[old]' class="form-control" id="formGroupExampleInput"
+                  placeholder="Current Password" required>
+              </div>
+              <div class="form-group">
+                <input type="passwords" name='passwords[new]' class="form-control" id="formGroupExampleInput"
+                  placeholder="New Password" required>
+              </div>
             </form>
-            <form id="sign-out" class="form-signout">
-              <button class="btn btn-md btn-dark btn-block mb-2" type="submit">Log out</button>
-            </form>
-
+            <div id="sign-out" class="modal-footer">
+              <button type="button" class="btn btn-secondary ml-auto" data-dismiss="modal">Sing-Out</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
+    <!-- End modal -->
 
     <div class="row text-center py-4">
       <div class="col-md-12">
@@ -59,16 +58,15 @@
           <h1 class="h3 mb-3 font-weight-normal">Sign up</h1>
 
           <label for="credentials[email]" class="sr-only">Email address</label>
-          <input type="email"  name='credentials[email]' class="form-control" placeholder="Email address"
-            required autofocus>
+          <input type="email" name='credentials[email]' class="form-control" placeholder="Email address" required
+            autofocus>
 
           <label for="credentials[password]" class="sr-only">Password</label>
-          <input type="password" name='credentials[password]' class="form-control"
-            placeholder="Password" required>
+          <input type="password" name='credentials[password]' class="form-control" placeholder="Password" required>
 
           <label for="credentials[password_confirmation]" class="sr-only">Confirm password</label>
-          <input type="password" name='credentials[password_confirmation]' class="form-control"
-            placeholder="Password" required>
+          <input type="password" name='credentials[password_confirmation]' class="form-control" placeholder="Password"
+            required>
 
           <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
         </form>
@@ -79,13 +77,12 @@
           <h1 class="h3 mb-3 font-weight-normal ">Sign in</h1>
 
           <label for="credentials[email]" class="sr-only">Email address</label>
-          <input type="email" name='credentials[email]' class="form-control" placeholder="Email address"
-            required autofocus>
+          <input type="email" name='credentials[email]' class="form-control" placeholder="Email address" required
+            autofocus>
 
           <label for="credentials[password]" class="sr-only">Password</label>
 
-          <input type="password" name='credentials[password]' class="form-control"
-            placeholder="Password" required>
+          <input type="password" name='credentials[password]' class="form-control" placeholder="Password" required>
 
           <div class="checkbox mb-2">
             <label>
@@ -109,14 +106,14 @@
 
       </section>
 
-      <section id="viewGameBoard"> 
+      <section id="viewGameBoard">
         <div id="viewTable">
           <div class="viewTitle"></div>
           <p class="viewID"></p>
           <p class="viewCells"></p>
           <p class="viewOver"></p>
         </div>
-        
+
       </section>
 
       <!--  Game section - The beginning  -->
@@ -124,7 +121,8 @@
 
         <!-- Find a bootstrap element to center it -->
         <div>
-          <h5 id="player-turn" class="rounded-pill border border-dark bg-gradient text-dark mt-3 py-2">Player "X" turn!</h5>
+          <h5 id="player-turn" class="rounded-pill border border-dark bg-gradient text-dark mt-3 py-2">Player "X" turn!
+          </h5>
           <div id="winner-msg"></div>
         </div>
         <div class="row">

@@ -15,8 +15,6 @@ store.userData = {
 
 let gameFinished = false
 
-
-
 const setCurrentValues = (event) => {
   const value = $(event.target)
   const box = event.target
