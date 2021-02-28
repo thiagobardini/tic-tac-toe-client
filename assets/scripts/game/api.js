@@ -14,6 +14,18 @@ const createGame = function (data) {
    })
 }
 
+
+const updateGame = (data) => {
+  return $.ajax({
+    url: `${config.apiUrl}/games/${store.game._id}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    },
+    data: data
+  })
+}
+
 // const gameRunner = function (index, value, over) {
 //    return $.ajax({
 //       headers: {
@@ -34,7 +46,7 @@ const createGame = function (data) {
 // }
 
 const viewGames = () => {
-  console.log('got games')
+  console.log('got games') // XXX delete
   return $.ajax({
     url: `${config.apiUrl}/games/`,
     method: 'GET',

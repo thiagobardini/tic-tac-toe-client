@@ -15,6 +15,8 @@ $(() => {
 
   $('#frame').hide()
   $('#game-controls').hide()
+  
+  $('#viewGameBoard').hide()
 
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)

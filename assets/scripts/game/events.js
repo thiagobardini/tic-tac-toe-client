@@ -4,21 +4,41 @@ const getFormFields = require("../../../lib/get-form-fields");
 const store = require("../store");
 
 // Used to storage the number of games.
-// let gamesPlayed = 1;
+store.currentTurn = true
+store.currentTurnValue = ''
+store.userData = {
+  game: {
+    cell: {},
+    over: false
+  }
+}
 
-// let turn = false;
-// let playerX = [];
-// let playerO = [];
-// let playerXScore = 0;
-// let playerOScore = 0;
-
-// store.turnNumber = 1;
-// store.turnValue = "";
-// store.notClicked = true;
-
+let gameFinished = false
 
 
-const onTrack = function (event) {
+
+const setCurrentValues = (event) => {
+  const value = $(event.target)
+  const box = event.target
+  store.currentTurn = !store.currentTurn
+  store.userData.game.cell.index = $(box).data('cell-index')
+
+  if(store.currentTurn) {
+    store.userData.game.cell.value = 'O'
+    $("#player-turn").text("Player 'X' turn!")
+    $(value).html("O")
+    $(value).data("key", "1")
+  } else {
+    store.userData.game.cell.value = 'X'
+    $("#player-turn").text("Player 'O' turn!")
+    $(value).html("X")
+    $(value).data("key", "1")
+  }
+
+}
+
+
+// const onTrack = function (event) {
   // let cellSelected = $(event.target);
   // let indexCell = cellSelected.index();
   // step1(indexCell, cellSelected);
@@ -77,7 +97,10 @@ const onTrack = function (event) {
   //   .GameRunner(indexCell, cellSelected, checkCombinations())
   //   .then(ui.updateGameSuccess)
   //   .catch(ui.updateGameFailure);
-};
+// };
+
+
+
 
 const onCreateGame = (event) => {
    const token = store.user.token
@@ -91,14 +114,17 @@ const onCreateGame = (event) => {
 
 // Function to get status of the game
 const onGameHistory = () => {
+  $('#viewGameBoard').show()
   api.viewGames()  
-  .then((selected) => {
-
+  .then((res) => {
+      // BUG Waiting for update function
     ui.viewGameBoardSuccess()
-    console.log(selected)
+    console.log(`${res} onGameHistory res`)
   })
   .catch(ui.viewGameBoardFailure)
 }
+
+
 
 
 module.exports = {
