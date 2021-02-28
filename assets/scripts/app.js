@@ -24,5 +24,5 @@ $(() => {
   // Game Config Section
   $('#new-game').on('click', gameEvents.onCreateGame)
   $('.box').on('click', gameEvents.onTrack)
-  $('#reset-game').on('click', gameEvents.onResetGame)
+  
 })

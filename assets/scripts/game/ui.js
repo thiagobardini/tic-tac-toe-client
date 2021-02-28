@@ -1,28 +1,28 @@
-const store = require('../store')
+const store = require("../store");
 
 const createNewGame = function () {
-  $('.box').trigger('reset')
-  $('#frame').hide()
-}
+    console.log("in create game")
+  $(".box").trigger("reset");
+  $("#frame").hide();
+  $("#success-message").text("Let's Play!");
+};
+
+const createGameSuccess = function () {
+  $("#frame").show();
+  $("#success-message").text("Let's Play!");
+};
 
 const showBoard = function () {
-  $('#frame').show()
-}
+  $("#frame").show();
+};
 
-const updateGameSuccess = function() {
-  store.over = true
-  store.game.over = true
-  store.game.cells = store.cells
- $("#winner-msg").text('Player Won 2') // FIXME add player winner
+const createGameFailure = function () {
+  $("#error-message").text("The board is not working. Try again later!");
+};
 
-}
-
-const updateGameFailure = function() {
-  $("#winner-msg").text('Tie Game! Play Again!') // FIXME add player winner
-}
 module.exports = {
   createNewGame,
-  showBoard,
-  updateGameSuccess,
-  updateGameFailure
-}
+  createGameSuccess,
+  createGameFailure,
+  showBoard
+};

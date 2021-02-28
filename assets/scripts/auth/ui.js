@@ -24,7 +24,6 @@ const signInSuccess = function (response) {
   $('#change-password').show()
   $('#sign-out').show()
   $('#game-controls').show()
-  $('#frame').show()
   $('#signOutHide').show()
 
   console.log('response from api is ', response)
