@@ -16,15 +16,7 @@ const store = require("../store");
 // store.turnValue = "";
 // store.notClicked = true;
 
-const onCreateGame = (event) => {
-   const token = store.user.token
-  $(".box").html(" ").html(" ");
-  $('.box').on('click', onTrack)
-  ui.showBoard()
-  api.createGame()
-    .then(ui.createGameSuccess)
-    .catch(ui.createGameFailure);
-};
+
 
 const onTrack = function (event) {
   // let cellSelected = $(event.target);
@@ -87,18 +79,29 @@ const onTrack = function (event) {
   //   .catch(ui.updateGameFailure);
 };
 
+const onCreateGame = (event) => {
+   const token = store.user.token
+  $(".box").html(" ").html(" ");
+  $('.box').on('click', onTrack)
+  ui.showBoard()
+  api.createGame()
+    .then(ui.createGameSuccess)
+    .catch(ui.createGameFailure);
+};
+
 // Function to get status of the game
-const onGameStatus = () => {
-  api.viewGames()  // getAllGames
-  .then((response) => {
-    // passar o resultado 'response' para ui
-    console.log(response)
+const onGameHistory = () => {
+  api.viewGames()  
+  .then((selected) => {
+
+    ui.viewGameBoardSuccess()
+    console.log(selected)
   })
-  .catch(ui.createGameError)
+  .catch(ui.viewGameBoardFailure)
 }
 
 
 module.exports = {
   onCreateGame,
-  onGameStatus
+  onGameHistory
 };

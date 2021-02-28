@@ -20,9 +20,21 @@ const createGameFailure = function () {
   $("#error-message").text("The board is not working. Try again later!");
 };
 
+const viewGameBoardSuccess = function () {
+  $("#frame").hide();
+  $("#viewTable").html(`<h2>History Game</h2>`);
+};
+
+const viewGameBoardFailure = function () {
+  $("#frame").hide();
+  $("#viewTable").html(`<h2>viewGameBoardFailure</h2>`);
+};
+
 module.exports = {
   createNewGame,
   createGameSuccess,
   createGameFailure,
-  showBoard
+  showBoard,
+  viewGameBoardSuccess,
+  viewGameBoardFailure
 };

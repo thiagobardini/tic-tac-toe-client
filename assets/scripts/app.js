@@ -24,5 +24,5 @@ $(() => {
   // Game Config Section
   $('#new-game').on('click', gameEvents.onCreateGame)
   
-  $('#game-status').on('click', gameEvents.onGameStatus)
+  $('#game-status').on('click', gameEvents.onGameHistory)
 })
