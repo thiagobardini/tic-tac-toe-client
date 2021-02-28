@@ -1,6 +1,7 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const store = require("../store")
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -18,9 +19,16 @@ const onSignIn = function (event) {
   const form = event.target
   const data = getFormFields(form)
 
+ 
   // send data to api for sign up
   api.signIn(data)
-    .then(ui.signInSuccess)
+    .then((response) => {
+       console.log('response from api is ', response)
+  console.log('store object originally is ', JSON.stringify(store))
+
+  store.user = response.user
+      ui.signInSuccess()
+      })
     .catch(ui.signInFailure)
 }
 

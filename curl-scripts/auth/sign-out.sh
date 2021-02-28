@@ -1,10 +1,10 @@
 #!/bin/bash
 
 curl "https://tic-tac-toe-api-production.herokuapp.com/sign-out" \
-   --include \
-   --request DELETE \
-   --header "Authorization: Bearer ${TOKEN}" \
-   --header "Content-Type: application/json" \
-  }'
+  --include \
+  --request DELETE \
+  --header "Authorization: Bearer ${TOKEN}" \
+  --header "Content-Type: application/json" \
+  --data '{}'
 
 echo

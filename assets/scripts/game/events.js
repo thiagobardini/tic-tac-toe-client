@@ -1,117 +1,145 @@
-const api = require('./api')
-const ui = require('./ui')
-const getFormFields = require('../../../lib/get-form-fields')
-const store = require('../store')
+const api = require("./api");
+const ui = require("./ui");
+const getFormFields = require("../../../lib/get-form-fields");
+const store = require("../store");
 
 // Used to storage the number of games.
-let gamesPlayed = 0
-let turn = false
+store.currentTurn = true;
+store.currentTurnValue = "";
+store.data = {
+  game: {
+    cell: {},
+    over: false,
+  },
+};
 
-let playerX = []
-let playerO = []
+let gameFinished = false;
 
+const hasWinCase = (game) => {
+  const combo = [
+    [0, 1, 2],
+    [0, 3, 6],
+    [0, 4, 8],
+    [1, 4, 7],
+    [2, 5, 8],
+    [2, 4, 6],
+    [3, 4, 5],
+    [6, 7, 8],
+  ];
 
+  const winnersArr = ["XXX", "OOO"];
 
-const onTrack = function (event) {
+  const mappedCombo = combo.map((arr) => {
+    let result = "";
+    arr.forEach((i) => {
+      result += game.cells[i] === "X" ? "X" : "0";
+    });
+    return winnersArr.includes(result);
+  });
 
-    let cellSelected = $(event.target)
+  return mappedCombo.filter((e) => e)[0];
+};
 
-    let indexCell = cellSelected.index()
+const checkEndGame = (game, box) => {
+  const data = {
+    game: {
+      cell: {
+        index: $(box).data("cell-index"),
+        value: store.currentTurnValue,
+      },
+      over: true,
+    },
+  };
 
-    step1(indexCell, cellSelected)
+  if (hasWinCase(game)) {
+    console.log(`Victory! \n\n GAME_CELLS: ${game.cells} \n\n BOX: ${box}`);
+    // ui 
+    $(".box").off("click", onTrack);
 
-    //Checks if the button has already been clicked (=== 1) or return 
-    function step1(index, value) {
-        if (value.data("key") === "1") {
-            /// DELETE
-            alert(value.data("key") === "1")
+    gameFinished = true;
 
-            return
-        }
+    api.updateGame(data).then((response) => console.log(response));
+  } else if (!game.cells.includes("")) {
+    console.log(`Tie: \n\n GAME_OBJECT: ${game}`);
 
-        // Check the player's turn
-        else if (turn) {
+    $(".box").off("click", onTrack);
 
-            // Show a player X turn
-            $("#player-turn").text("Player 'X' turn!")
-            $(value).html("O")
+    gameFinished = true;
 
-            // Checks if the button already clicked.
-            $(value).data("key", "1")
-            playerO.push(index)
+    api.updateGame(data).then((response) => console.log(response));
+  }
 
-            /// DELETE
-            console.log(index + ' index print 1')
-            console.log(playerO + ' array X')
+  return game;
+};
 
-            turn = !turn;
-        } else {
-            $("#player-turn").text("Player 'O' turn!")
-            $(value).html("X")
-            $(value).data("key", "1")
-            playerX.push(index)
-            /// DELETE
-            console.log(index + ' index print 2')
-            console.log(playerX + ' array X')
+const setCurrentValues = (event) => {
+  const value = $(event.target);
+  const box = event.target;
+  store.currentTurn = !store.currentTurn;
+  store.data.game.cell.index = $(box).data("cell-index");
 
-            turn = !turn
-        }
+  if (store.currentTurn) {
+    store.data.game.cell.value = "O";
+    $("#player-turn").text("Player 'X' turn!");
+    $(value).html("O");
+    $(value).data("key", "1");
+  } else {
+    store.data.game.cell.value = "X";
+    $("#player-turn").text("Player 'O' turn!");
+    $(value).html("X");
+    $(value).data("key", "1");
+  }
+};
 
-        //DELETE
-        console.log('Result: ' + playerX)
-        console.log(`Result: ${playerO}`)
+const onTrack = async(event) => {
+  setCurrentValues(event);
 
-        // FIX IT
-        // TODO
-        // I don't know how to check if I have any of these combinations
-        // if (playerX.includes(0, 1, 2) || playerX.includes(3, 4, 5) || playerX.includes(6, 7, 8) || playerX.includes(0, 3, 6) || playerX.includes(1, 4, 7) || playerX.includes(2, 5, 8) || playerX.includes(0, 4, 8) || playerX.includes(2, 4, 6)) {
-        //     alert(true)
-        // } else if (playerO.includes(0, 1, 2) || playerO.includes(3, 4, 5) || playerO.includes(6, 7, 8) || playerO.includes(0, 3, 6) || playerO.includes(1, 4, 7) || playerO.includes(2, 5, 8) || playerO.includes(0, 4, 8) || playerO.includes(2, 4, 6)) {
-        //     `${"#winner-msg"}.html("Victory O")`
-        // } else if (playerX && playerO.lenght === 5) {
-        //     `${"#winner-msg"}.html("TIE")`
-        // }
+  if (gameFinished) {
+    checkEndGame(store.data, event.target);
+  } else {
+    await api
+      .updateGame(store.data)
+      .then((response) => {
+        checkEndGame(response.game, event.target);
+      })
+      .catch(ui.updateGameFailure);
+  }
 
+  console.log("finished the turn");
+};
 
-    }
+const onCreateGame = (event) => {
+  const token = store.user.token;
+  $(".box").html(" ").html(" ");
+  $(".box").on("click", onTrack);
+  ui.showBoard();
+  $("#viewGameBoard").hide();
+  api
+    .createGame()
 
-    console.log("oi ", playerO)
-    console.log("oi ", playerX)
+    .then((response) => {
+      store.game = response.game;
+      store.gameOver = false;
+      ui.createGameSuccess();
+    })
+    .catch(ui.createGameFailure);
+};
 
-    // FIX IT
-// TODO -> API follow the instructions
-    // api.ameRunner(indexCell, cellSelected)
-    // //         .then(ui.updateGameSuccess)
-    // //         .catch(ui.updateGameFailure)
-}
-
-
-
-const onCreateGame = function (event) {
-    const token = store.user.token
-    $('.box').html(' ').html(' ')
-
-    ui.showBoard()
-    api.CreateGame(token)
-        .then(ui.createGameSuccess)
-        .catch(ui.createGameError)
-}
-
-const onResetGame = function (event) {
-    $('.box').html($('.box').html().replace('X', ''))
-
-    $('.box').removeData("key", "")
-    $('.box').removeData("key", "")
-
-    // Set the numbers of victories to zero in case, the user decides to reset.
-    // gamesVictories = 0
-    $('#number-wins').html('<b> Number of wins: </b>')
-    $('#winner-message').hide()
-}
-
+// Function to get status of the game
+const onGameHistory = () => {
+  $("#viewGameBoard").show();
+  api
+    .viewGames()
+    .then((response) => {
+      
+      ui.viewGameBoardSuccess(response);
+      console.log(`${res} onGameHistory res`);
+    })
+    .catch(ui.viewGameBoardFailure);
+};
 
 module.exports = {
-    onCreateGame,
-    onTrack,
-    onResetGame
-}
+  onCreateGame,
+  onTrack,
+  onGameHistory,
+};

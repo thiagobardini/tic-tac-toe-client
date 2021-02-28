@@ -15,6 +15,8 @@ $(() => {
 
   $('#frame').hide()
   $('#game-controls').hide()
+  
+  $('#viewGameBoard').hide()
 
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
@@ -23,6 +25,6 @@ $(() => {
 
   // Game Config Section
   $('#new-game').on('click', gameEvents.onCreateGame)
-  $('.box').on('click', gameEvents.onTrack)
-  $('#reset-game').on('click', gameEvents.onResetGame)
+  
+  $('#game-status').on('click', gameEvents.onGameHistory)
 })

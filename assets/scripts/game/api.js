@@ -14,26 +14,44 @@ const createGame = function (data) {
    })
 }
 
-const gameRunner = function (index, value, over) {
-   return $.ajax({
-      headers: {
-         Authorization: `Bearer ${store.user.token}`
-      },
-      url: 'https://tic-tac-toe-api-production.herokuapp.com/games/' + store.ID,
-      method: 'PATCH',
-      data: {
-         game: {
-            cell: {
-               index: index, // curent index
-               value: value // cunrent value
-            },
-            over: over // won true
-         }
-      }
-   })
+
+const updateGame = (data) => {
+  return $.ajax({
+    url: `${config.apiUrl}/games/${store.game._id}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    },
+    data: data
+  })
+}
+
+
+const getAllGames = () => {
+  console.log('got games')
+  return $.ajax({
+    url: `${config.apiUrl}/games/`,
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    }
+  })
+}
+
+const viewGames = () => {
+  console.log('got games') // XXX delete
+  return $.ajax({
+    url: `${config.apiUrl}/games/`,
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    }
+  })
 }
 
 module.exports = {
    createGame,
-   gameRunner
+   viewGames,
+   updateGame,
+   getAllGames
 }
