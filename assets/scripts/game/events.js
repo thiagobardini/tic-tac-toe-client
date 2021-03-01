@@ -53,22 +53,23 @@ const checkEndGame = (game, box) => {
 
   if (hasWinCase(game)) {
     console.log(`Victory! \n\n GAME_CELLS: ${game.cells} \n\n BOX: ${box}`);
-    // ui 
+    $("#player-turn").html(`<h2 class="alert alert-primary"> Victory!</h2>`);
     $(".box").off("click", onTrack);
-
+    
     gameFinished = true;
-
+    
     api.updateGame(data).then((response) => console.log(response));
   } else if (!game.cells.includes("")) {
     console.log(`Tie: \n\n GAME_OBJECT: ${game}`);
-
+    $("#player-turn").html(`<h2 class="alert alert-primary"> Tie Game! Play Again.</h2>`);
+    
     $(".box").off("click", onTrack);
 
     gameFinished = true;
 
     api.updateGame(data).then((response) => console.log(response));
   }
-
+   
   return game;
 };
 
@@ -128,8 +129,7 @@ const onCreateGame = (event) => {
 // Function to get status of the game
 const onGameHistory = () => {
   $("#viewGameBoard").show();
-  api
-    .viewGames()
+  api.viewGames()
     .then((response) => {
       
       ui.viewGameBoardSuccess(response);
