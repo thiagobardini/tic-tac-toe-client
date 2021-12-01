@@ -1,42 +1,77 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Tic Tac Toe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-  <title>Tic Tac Toe</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Do not add `link` tags-->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
-  <!-- Do not add `link` tags-->
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <!-- Do not add `script` tags-->
+    <script
+      src="public/vendor.js"
+      type="text/javascript"
+      charset="utf-8"
+      defer
+    ></script>
+    <script
+      src="public/application.js"
+      type="text/javascript"
+      charset="utf-8"
+      defer
+    ></script>
+  </head>
 
-  <!-- Do not add `script` tags-->
-  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-
-</head>
-
-<body>
-  <main class="container">
+  <body>
     <div id="signOutHide" class="col-xl-12">
-      <button id="signOutButton" type="button" class="btn btn-outline-dark" data-toggle="modal"
-        data-target=".bd-example-modal-sm">Menu</button>
+      <button
+        id="signOutButton"
+        type="button"
+        class="btn btn-outline-dark"
+        data-toggle="modal"
+        data-target=".bd-example-modal-sm"
+      >
+        Menu
+      </button>
 
-      <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-        aria-hidden="true">
+      <div
+        class="modal fade bd-example-modal-sm"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="mySmallModalLabel"
+        aria-hidden="true"
+      >
         <div class="modal-dialog modal-auto">
           <div class="modal-content px-3">
-            <form id='change-password'>
+            <form id="change-password">
               <h5 class="font-weight-normal mt-2">Change Your Password</h5>
               <div class="form-group">
-                <input type="password" name='passwords[old]' class="form-control" 
-                  placeholder="Current Password" required>
+                <input
+                  type="password"
+                  name="passwords[old]"
+                  class="form-control"
+                  placeholder="Current Password"
+                  required
+                />
               </div>
               <div class="form-group">
-                <input type="passwords" name='passwords[new]' class="form-control"
-                  placeholder="New Password" required>
+                <input
+                  type="passwords"
+                  name="passwords[new]"
+                  class="form-control"
+                  placeholder="New Password"
+                  required
+                />
               </div>
             </form>
             <div id="sign-out" class="modal-footer">
-              <button type="button" class="btn btn-secondary ml-auto" data-dismiss="modal">Sing-Out</button>
+              <button
+                type="button"
+                class="btn btn-secondary ml-auto"
+                data-dismiss="modal"
+              >
+                Sing-Out
+              </button>
             </div>
           </div>
         </div>
@@ -44,92 +79,143 @@
     </div>
     <!-- End modal -->
 
-    <div class="row text-center py-4">
-      <div class="col-md-12">
-        <img class="mb-4" src="https://i.imgur.com/DEJNSyx.png" alt="" width="200" height="200">
-        <h1 class="mb-6">Tic Tac Toe</h1>
-      </div>
+    <div id="overlay">
+      <header>
+        <section id="logo">
+          <img
+            src="https://i.imgur.com/DEJNSyx.png"
+            alt=""
+            width="200"
+            height="200"
+          />
+          <h1>Tic Tac Toe</h1>
+        </section>
+        <!-- End logo -->
 
-      <div class="col-md-6">
-        <form id='sign-up' class="form-signin">
-          <h1 class="h3 mb-3 font-weight-normal">Sign up</h1>
+        <section id="login">
+          <div class="row text-center p-4">
+            <div class="col-md-6">
+              <form id="sign-up" class="form-signin">
+                <h1 class="h3 mb-3 font-weight-normal">Sign up</h1>
 
-          <label for="credentials[email]" class="sr-only">Email address</label>
-          <input type="email" name='credentials[email]' class="form-control" placeholder="Email address" required
-            autofocus>
+                <label for="credentials[email]" class="sr-only"
+                  >Email address</label
+                >
+                <input
+                  type="email"
+                  name="credentials[email]"
+                  class="form-control"
+                  placeholder="Email address"
+                  required
+                  autofocus
+                />
 
-          <label for="credentials[password]" class="sr-only">Password</label>
-          <input type="password" name='credentials[password]' class="form-control" placeholder="Password" required>
+                <label for="credentials[password]" class="sr-only"
+                  >Password</label
+                >
+                <input
+                  type="password"
+                  name="credentials[password]"
+                  class="form-control"
+                  placeholder="Password"
+                  required
+                />
 
-          <label for="credentials[password_confirmation]" class="sr-only">Confirm password</label>
-          <input type="password" name='credentials[password_confirmation]' class="form-control" placeholder="Password"
-            required>
+                <label for="credentials[password_confirmation]" class="sr-only"
+                  >Confirm password</label
+                >
+                <input
+                  type="password"
+                  name="credentials[password_confirmation]"
+                  class="form-control"
+                  placeholder="Password"
+                  required
+                />
 
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
-        </form>
-      </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                  Sign up
+                </button>
+              </form>
+            </div>
 
-      <div class="col-md-6">
-        <form id='sign-in' class="form-signin">
-          <h1 class="h3 mb-3 font-weight-normal ">Sign in</h1>
+            <div class="col-md-6">
+              <form id="sign-in" class="form-signin">
+                <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
 
-          <label for="credentials[email]" class="sr-only">Email address</label>
-          <input type="email" name='credentials[email]' class="form-control" placeholder="Email address" required
-            autofocus>
+                <label for="credentials[email]" class="sr-only"
+                  >Email address</label
+                >
+                <input
+                  type="email"
+                  name="credentials[email]"
+                  class="form-control"
+                  placeholder="Email address"
+                  required
+                  autofocus
+                />
 
-          <label for="credentials[password]" class="sr-only">Password</label>
+                <label for="credentials[password]" class="sr-only"
+                  >Password</label
+                >
 
-          <input type="password" name='credentials[password]' class="form-control" placeholder="Password" required>
+                <input
+                  type="password"
+                  name="credentials[password]"
+                  class="form-control"
+                  placeholder="Password"
+                  required
+                />
 
-          <div class="checkbox mb-2">
-            <label>
-              <input type="checkbox" value="remember-me"> Remember me
-            </label>
+                <div class="checkbox mb-2">
+                  <label>
+                    <input type="checkbox" value="remember-me" /> Remember me
+                  </label>
+                </div>
+                <button class="btn btn-lg btn-dark btn-block" type="submit">
+                  Sign in
+                </button>
+              </form>
+            </div>
           </div>
-          <button class="btn btn-lg btn-dark btn-block" type="submit">Sign in</button>
-        </form>
-      </div>
+        </section>
+        <!-- End login -->
 
-      <section id="display-message" class="col-12">
-        <div id='error-message' class='failure'></div>
-        <div id='success-message' class='success'></div>
-      </section>
+        <section id="display-message">
+          <div id="error-message" class="failure"></div>
+          <div id="success-message" class="success"></div>
+        </section>
 
-      <section id="game-controls" class="col-12">
-
-        <button id="new-game" class="btn btn-primary">New Game</button>
-        <button id="game-status" class="btn btn-primary">View All Games</button>
-        <div id="viewGameBoard"></div>
-      </section>
-
+        <section id="game-controls">
+          <button id="new-game">New Game</button>
+          <button id="game-status">View All Games</button>
+          <div id="viewGameBoard"></div>
+        </section>
+      </header>
       <!--  Game section - The beginning  -->
-      <section id="frame">
-
-        <!-- Find a bootstrap element to center it -->
-        <div>
-          <h5 id="player-turn" class="border border-dark alert alert-primary mt-3 py-2" role="alert">Player "X" turn!
-          </h5>
-          <div id="winner-msg"></div>
-        </div>
-        <div class="row">
-          <div class="col-4 box" data-cell-index="0" id="0"></div>
-          <div class="col-4 box" data-cell-index="1" id="1"></div>
-          <div class="col-4 box" data-cell-index="2" id="2"></div>
-          <div class="col-4 box" data-cell-index="3" id="3"></div>
-          <div class="col-4 box" data-cell-index="4" id="4"></div>
-          <div class="col-4 box" data-cell-index="5" id="5"></div>
-          <div class="col-4 box" data-cell-index="6" id="6"></div>
-          <div class="col-4 box" data-cell-index="7" id="7"></div>
-          <div class="col-4 box" data-cell-index="8" id="8"></div>
-        </div>
-      </section>
-
+      <main>
+        <section id="frame">
+          <!-- Find a bootstrap element to center it -->
+          <div>
+            <h5 id="player-turn">Player "X" turn!</h5>
+            <div id="winner-msg"></div>
+          </div>
+          <div class="row">
+            <div class="box" data-cell-index="0" id="0"></div>
+            <div class="box" data-cell-index="1" id="1"></div>
+            <div class="box" data-cell-index="2" id="2"></div>
+            <div class="box" data-cell-index="3" id="3"></div>
+            <div class="box" data-cell-index="4" id="4"></div>
+            <div class="box" data-cell-index="5" id="5"></div>
+            <div class="box" data-cell-index="6" id="6"></div>
+            <div class="box" data-cell-index="7" id="7"></div>
+            <div class="box" data-cell-index="8" id="8"></div>
+          </div>
+        </section>
+      </main>
       <!-- footer -->
-      <div class="col-xl-12">
-        <p class="mt-5 mb-3 text-muted">Thiago Bardini &copy; 2021</p>
-      </div>
-
-  </main>
-</body>
-
+      <footer>
+        <p>Thiago Bardini &copy; 2021</p>
+      </footer>
+    </div>
+  </body>
 </html>
