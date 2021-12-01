@@ -48,6 +48,7 @@ body {
 
 #overlay {
   width: 95vw;
+  max-width: 700px;
   margin: 3% auto;
   height: 95vh;
   background-color: $body-bg-color;
@@ -92,4 +93,16 @@ footer p {
   position: relative;
   display: flex;
   justify-content: center;
+}
+
+// ACHAR UMA SOLUCAO PARA ISSO
+@media (max-width: 768px) {
+  #frame {
+    max-width: 100px;
+  }
+
+  .box {
+    height: 50px;
+    width: 50px;
+  }
 }
