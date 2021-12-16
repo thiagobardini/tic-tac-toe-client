@@ -3,64 +3,19 @@
 $alt-color: $cyan;
 $body-bg-color: rgba(255, 255, 255, 0.9);
 $font-color: $light;
+$margin-top: 25px;
+$font-family: "Yantramanav", sans-serif;
 
-html,
 body {
   background-color: rgb(57, 169, 219);
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
 }
-
-.failure {
-  color: red;
-}
-
-.success {
-  color: green;
-}
-
-#game-controls {
-  margin: 0 auto;
-}
-
-#frame {
-  margin: 0 auto;
-  max-width: 600px;
-
-  .box {
-    display: flex;
-    font-size: 100px;
-    font-weight: bold;
-    color: #fdfeff;
-    height: 200px;
-    width: 200px;
-    border: 5px solid $gray-200 !important;
-    background-color: #538fff;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: 1s;
-  }
-}
-
-// novos css
 
 #overlay {
   width: 95vw;
-  max-width: 700px;
   margin: 3% auto;
   height: 95vh;
   background-color: $body-bg-color;
   border-radius: 1%;
-
-  // display: grid;
-  // grid-template-areas:
-  //   "header header"
-  //   "nav main"
-  //   "footer footer";
-  // grid-template-columns: minmax(auto, 12em) 5fr;
-  //   grid-template-rows: auto 1fr auto;
 }
 
 #logo {
@@ -75,15 +30,88 @@ body {
 }
 
 #logo h1 {
-  margin: 0 auto;
-  padding: 30px 0px;
+  color: #004e89;
+  font-family: $font-family;
+  font-size: 50px;
+  font-weight: 400;
+  margin: 0;
+  text-align: center;
 }
 
-// h1 {
-//   display: flex;
-//   justify-content: center;
-//   flex-wrap: wrap;
-// }
+#logo h2 {
+  color: #aaa;
+  font-family: $font-family;
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: 2px;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: $margin-top;
+}
+
+.failure {
+  color: red;
+  font-family: $font-family;
+}
+
+.success {
+  color: green;
+  font-family: $font-family;
+}
+
+// Buttons
+#game-controls {
+  text-align: center;
+  margin: 0 auto;
+}
+
+#game-controls a {
+  background-color: #9dd1f1;
+  border-radius: 3px;
+  color: #004e89;
+  font-family: "Yantramanav", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  display: inline-block;
+  margin: 10px;
+  padding: 12px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#frame {
+  // position: relative;
+  text-align: center;
+  margin: 25px 25px;
+  // top: 30px;
+
+  .flex-row-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .flex-row-box > .box {
+    flex: 1 1 30%; /*grow | shrink | basis */
+    font-size: 100px;
+    font-weight: bold;
+    color: #538fff;
+    height: 200px;
+
+    border: 2px solid #9dd1f1;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 1s;
+  }
+
+  .box:hover {
+    background-color: #004e89;
+    border-color: #004e89;
+  }
+}
 
 footer {
   padding: 60px 0px;

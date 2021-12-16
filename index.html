@@ -88,6 +88,7 @@
             width="200"
             height="200"
           />
+          <h2>Classic Game</h2>
           <h1>Tic Tac Toe</h1>
         </section>
         <!-- End logo -->
@@ -186,9 +187,9 @@
         </section>
 
         <section id="game-controls">
-          <button id="new-game">New Game</button>
-          <button id="game-status">View All Games</button>
-          <div id="viewGameBoard"></div>
+          <a id="new-game">New Game</a>
+          <a id="game-status">View All Games</a>
+          <a id="viewGameBoard">View Game Board</a>
         </section>
       </header>
       <!--  Game section - The beginning  -->
@@ -199,7 +200,7 @@
             <h5 id="player-turn">Player "X" turn!</h5>
             <div id="winner-msg"></div>
           </div>
-          <div class="row">
+          <div class="flex-row-box">
             <div class="box" data-cell-index="0" id="0"></div>
             <div class="box" data-cell-index="1" id="1"></div>
             <div class="box" data-cell-index="2" id="2"></div>
