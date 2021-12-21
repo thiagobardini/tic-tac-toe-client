@@ -1,13 +1,15 @@
 @import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:ital,wght@1,700&display=swap');
 
 $alt-color: $cyan;
 $body-bg-color: rgba(255, 255, 255, 0.9);
 $font-color: $light;
 $margin-top: 25px;
-$font-family: "Yantramanav", sans-serif;
+$font-family:  'Press Start 2P', cursive;
 
 body {
   background-color: rgb(57, 169, 219);
+  font-family: $font-family;
 }
 
 #pagecontainer {
@@ -15,16 +17,10 @@ body {
   margin: 0 auto;
   height: 100%;
   background-color: $body-bg-color;
-  // border-radius: 1%;
   position: relative;
 }
 
-#signOutHide {
-  display: flex;
-  justify-content: flex-start;
-}
-
-// LOGIN - START
+// Login Start
 #login {
   display: flex;
   justify-content: center;
@@ -48,7 +44,6 @@ header {
 
 #logo h1 {
   color: #004e89;
-  font-family: $font-family;
   font-size: 50px;
   font-weight: 400;
   margin: 0;
@@ -57,7 +52,6 @@ header {
 
 #logo h2 {
   color: #aaa;
-  font-family: $font-family;
   font-size: 16px;
   font-weight: 100;
   letter-spacing: 2px;
@@ -74,33 +68,26 @@ header {
 
 .failure {
   color: red;
-  font-family: $font-family;
 }
 
 .success {
   color: green;
-  font-family: $font-family;
 }
 
-// Buttons
+
 #game-controls {
-  text-align: center;
-  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 #game-controls a {
   background-color: #9dd1f1;
-  border-radius: 3px;
   color: #004e89;
-  font-family: "Yantramanav", sans-serif;
-  font-size: 16px;
-  font-weight: 300;
-  display: inline-block;
+  border-radius: 3px;
   margin: 10px;
   padding: 12px;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
+  cursor: pointer;
 }
 
 // Main - Start
@@ -141,7 +128,7 @@ main {
     border-color: #004e89;
   }
 }
-a#viewGameBoard {
+#viewGameBoard {
   display: flex;
   flex-wrap: wrap;
 }
@@ -157,12 +144,6 @@ footer {
   padding-top: 2.5rem;
 }
 
-footer p {
-  // position: relative;
-  // display: flex;
-  // justify-content: center;
-  font-family: $font-family;
-}
 
 // ACHAR UMA SOLUCAO PARA ISSO
 @media (max-width: 768px) {

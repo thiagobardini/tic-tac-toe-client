@@ -11,12 +11,11 @@ const gameEvents = require('./game/events')
 $(() => {
   $('#change-password').hide()
   $('#sign-out').hide()
-  $('#signOutHide').hide()
 
   $('#frame').hide()
   $('#game-controls').hide()
-  
-  $('#viewGameBoard').hide()
+
+  $('#viewGameBoard').show()
 
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
@@ -25,6 +24,6 @@ $(() => {
 
   // Game Config Section
   $('#new-game').on('click', gameEvents.onCreateGame)
-  
+
   $('#game-status').on('click', gameEvents.onGameHistory)
 })

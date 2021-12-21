@@ -24,61 +24,6 @@
 
   <body>
     <div id="pagecontainer">
-      <div id="signOutHide">
-        <button
-          id="signOutButton"
-          type="button"
-          class="btn btn-outline-dark btn-md px-5"
-          data-toggle="modal"
-          data-target=".bd-example-modal-sm"
-        >
-          Menu
-        </button>
-
-        <div
-          class="modal fade bd-example-modal-sm"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="mySmallModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-auto">
-            <div class="modal-content px-3">
-              <form id="change-password">
-                <h5 class="font-weight-normal mt-2">Change Your Password</h5>
-                <div class="form-group">
-                  <input
-                    type="password"
-                    name="passwords[old]"
-                    class="form-control"
-                    placeholder="Current Password"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <input
-                    type="passwords"
-                    name="passwords[new]"
-                    class="form-control"
-                    placeholder="New Password"
-                    required
-                  />
-                </div>
-              </form>
-              <div id="sign-out" class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary ml-auto"
-                  data-dismiss="modal"
-                >
-                  Sing-Out
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End modal -->
       <header>
         <section id="logo">
           <img
@@ -179,18 +124,64 @@
           </div>
         </section>
         <!-- End login -->
-
-        <section id="display-message">
-          <div id="error-message" class="failure"></div>
-          <div id="success-message" class="success"></div>
-        </section>
-
-        <section id="game-controls">
-          <a id="new-game">New Game</a>
-          <a id="game-status">View All Games</a>
-          <a id="viewGameBoard">View Game Board</a>
-        </section>
       </header>
+
+      <section id="game-controls">
+        <a id="new-game">New Game</a>
+        <a id="game-status">Game Record</a>
+        <!-- <a id="viewGameBoard"></a> -->
+
+        <a
+          id="signOutButton"
+          data-toggle="modal"
+          data-target=".bd-example-modal-sm"
+          >Settings</a
+        >
+        <div class="modal fade bd-example-modal-sm tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+        aria-hidden="true">
+          <div class="modal-dialog modal-auto">
+            <div class="modal-content px-3">
+              <form id="change-password">
+                <h5 class="font-weight-normal mt-2">Change Your Password</h5>
+                <div class="form-group">
+                  <input
+                    type="password"
+                    name="passwords[old]"
+                    class="form-control"
+                    placeholder="Current Password"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="passwords"
+                    name="passwords[new]"
+                    class="form-control"
+                    placeholder="New Password"
+                    required
+                  />
+                </div>
+              </form>
+              <div id="sign-out" class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary ml-auto"
+                  data-dismiss="modal"
+                >
+                  Sing-Out
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End modal -->
+      </section>
+
+      <section id="display-message">
+        <div id="error-message" class="failure"></div>
+        <div id="success-message" class="success"></div>
+      </section>
+      <div id="viewGameBoard"></div>
       <!--  Game section - The beginning  -->
       <main>
         <section id="frame">
