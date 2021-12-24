@@ -3,19 +3,20 @@
 
 $alt-color: $cyan;
 $body-bg-color: rgba(255, 255, 255, 0.9);
+// $body-bg-color: #f2a900;
 $font-color: $light;
 $margin-top: 25px;
 $font-family:  'Press Start 2P', cursive;
 
 body {
-  background-color: rgb(57, 169, 219);
+  // background-color: rgb(57, 169, 219);
+  background-color:#f2a900;
   font-family: $font-family;
 }
 
 #pagecontainer {
   width: 95vw;
   margin: 0 auto;
-  height: 100%;
   background-color: $body-bg-color;
   position: relative;
 }
@@ -38,12 +39,14 @@ header {
   padding: 30px 0px;
 }
 
-#logo img {
+.img-logo {
   margin: 0 auto;
+  border: 3px solid #4d4d4e;
 }
 
 #logo h1 {
-  color: #004e89;
+  color: #f2a900;
+  // color: #004e89;
   font-size: 50px;
   font-weight: 400;
   margin: 0;
@@ -51,7 +54,8 @@ header {
 }
 
 #logo h2 {
-  color: #aaa;
+  // color: #aaa;
+  color: #4d4d4e;
   font-size: 16px;
   font-weight: 100;
   letter-spacing: 2px;
@@ -65,6 +69,7 @@ header {
   display: flex;
   justify-content: center;
 }
+
 
 .failure {
   color: red;
@@ -82,12 +87,20 @@ header {
 }
 
 #game-controls a {
-  background-color: #9dd1f1;
-  color: #004e89;
+  // background-color: #9dd1f1;
+  // color: #004e89;
+  // background-color: #f2a900;
+  color: #f2a900;
+  border: 3px solid #4d4d4e;
   border-radius: 3px;
   margin: 10px;
   padding: 12px;
   cursor: pointer;
+  letter-spacing: 2px;
+}
+
+#game-controls a:hover{
+  background-color: #fff;
 }
 
 // Main - Start
@@ -96,14 +109,30 @@ main {
   display: block;
 }
 
+.winner-coins {
+  background-image: url("../../public/coins.gif");
+}
+
+#winner-img {
+  position: absolute;
+
+  border-radius: 50%;
+
+  opacity: 0.3;
+}
+#winner-img img {
+  transition-property: opacity;
+  transition-duration: 5s;
+  transition-delay: 2s;
+}
 #frame {
   text-align: center;
   margin: 25px 25px;
   top: 30px;
   width: 650px;
   margin: 0 auto;
-
   .flex-row-box {
+    // background-image:url("../../public/coins.gif");
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -113,9 +142,8 @@ main {
     flex: 1 1 200px; /*grow | shrink | basis */
     font-size: 100px;
     font-weight: bold;
-    color: #538fff;
     height: 200px;
-    border: 2px solid #9dd1f1;
+    border: 2px solid #4d4d4e;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -124,8 +152,8 @@ main {
   }
 
   .box:hover {
-    background-color: #004e89;
-    border-color: #004e89;
+    background-color: #f2a900;
+    border-color: #f2a900;
   }
 }
 #viewGameBoard {

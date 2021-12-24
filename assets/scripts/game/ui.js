@@ -14,6 +14,8 @@ const createGameSuccess = function () {
   console.log('in create game')
   $('#frame').show()
   $('#game-status').show()
+  $('#winner-img').hide()
+  // $('#winner-coins').hide()
   $('#success-message').text("Let's Play!")
   setTimeout(function () {
     $('#success-message').text('').removeClass('failure')

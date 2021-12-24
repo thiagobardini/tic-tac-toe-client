@@ -69,7 +69,7 @@ const signOutSuccess = function () {
   // hide game
   $('#game-controls').hide()
   $('#frame').hide()
-
+  $('#pagecontainer').css('background-image', 'none')
   $('#success-message').text('See you soon!').addClass('.success')
 
   setTimeout(function () {

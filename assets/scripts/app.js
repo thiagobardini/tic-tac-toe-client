@@ -11,12 +11,15 @@ const gameEvents = require('./game/events')
 $(() => {
   $('#change-password').hide()
   $('#sign-out').hide()
+  $('#winner-img').hide()
+  $('.winner-coins').hide()
 
+  // Game Board
   $('#frame').hide()
   $('#game-controls').hide()
-
   $('#viewGameBoard').show()
 
+  // Auth
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
