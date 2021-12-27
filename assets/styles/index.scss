@@ -160,7 +160,16 @@ main {
   display: flex;
   flex-wrap: wrap;
 }
+#audio-controls {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: #4d4d4e;
+  color: #fff;
+  cursor: pointer;
+  font-size: 40px;
 
+}
 // FOOTER - START
 footer {
   display: block;

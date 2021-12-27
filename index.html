@@ -11,6 +11,10 @@
   <!-- Do not add `script` tags-->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+  <link rel="stylesheet" href="./fontawesome/css/all.css">
+  <link rel="stylesheet" href="./fontawesome/css/all.min.css">
+
 </head>
 
 <body>
@@ -136,29 +140,30 @@
     <!-- End login -->
     <!-- footer -->
     <footer>
+      <section id="audio-controls">
+        <audio id="music" loop autoplay>
+          <source src='./public/LetsGoToMoon.mp3' type='audio/mp3' />
+        </audio>
+
+        <p onclick="playAudio()" type="button"><i class="far fa-play-circle"></i></p>
+        <p onclick="pauseAudio()" type="button"><i class="far fa-pause-circle"></i></p>
+      </section>
       <p class="py-5">Thiago Bardini &copy; 2021</p>
-      <audio id="music" loop autoplay>
-        <source src='./public/LetsGoToMoon.mp3' type='audio/mp3' />
-      </audio>
-
-
-    <button onclick="playAudio()" type="button">Play Audio<i class="fa fa-play" aria-hidden="true"></i></button>
-    <button onclick="pauseAudio()" type="button">Pause Audio</button>
     </footer>
   </div>
 
 
   <script>
-var x = document.getElementById("music");
+    var x = document.getElementById("music");
 
-function playAudio() {
-  x.play();
-}
+    function playAudio() {
+      x.play();
+    }
 
-function pauseAudio() {
-  x.pause();
-}
-</script>
+    function pauseAudio() {
+      x.pause();
+    }
+  </script>
 </body>
 
 </html>
