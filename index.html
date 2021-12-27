@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tic Tac Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+  <link rel="stylesheet" href="./fontawesome/css/all.css">
+  <link rel="stylesheet" href="./fontawesome/css/all.min.css">
+
+</head>
+
+<body>
+  <div id="pagecontainer">
+    <header>
+      <section id="logo">
+        <img src="./public/dodgeVsBitcoin.gif" alt="logo" width="300" class="img-logo" />
+        <h1 class="pt-5">Crypto-Tac-Toe</h1>
+        <h2><img src="./public/dodge.gif" /><span class="hide-title-coins">DodgeCoin</span><span style="color:red"> x </span><span class="hide-title-coins">Bitcoin</span><img
+            src="./public/bitcoin.gif" /></h2>
+      </section>
+      <!-- End logo -->
+    </header>
+
+    <section id="game-controls">
+      <a id="new-game">New Game</a>
+      <a id="game-status">Game Record</a>
+      <!-- <a id="viewGameBoard"></a> -->
+
+      <a id="signOutButton" data-toggle="modal" data-target=".bd-example-modal-sm">Settings</a>
+      <div class="modal fade bd-example-modal-sm tabindex=" -1" role="dialog" aria-labelledby="mySmallModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-auto">
+          <div class="modal-content px-3">
+            <form id="change-password">
+              <h5 class="font-weight-normal mt-2">Change Your Password</h5>
+              <div class="form-group">
+                <input type="password" name="passwords[old]" class="form-control" placeholder="Current Password"
+                  required />
+              </div>
+              <div class="form-group">
+                <input type="passwords" name="passwords[new]" class="form-control" placeholder="New Password"
+                  required />
+              </div>
+            </form>
+            <div id="sign-out" class="modal-footer">
+              <button type="button" class="btn btn-secondary ml-auto" data-dismiss="modal">
+                Sing-Out
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End modal -->
+    </section>
+
+    <section id="display-message">
+      <div id="error-message" class="failure"></div>
+      <div id="success-message" class="success"></div>
+    </section>
+    <div id="viewGameBoard"></div>
+    <!--  Game section - The beginning  -->
+    <main>
+      <section id="frame">
+        <!-- Find a bootstrap element to center it -->
+        <div>
+          <h5 id="player-turn">Player <img src="./public/dodge.gif"> turn!</h5>
+          <p id="winner-msg"></p>
+        </div>
+        <div class="flex-row-box">
+          <img id="winner-img" src="./public/dodgeMoon.gif" alt="">
+          <div class="col-4 box border-top-0 border-left-0" data-cell-index="0" id="0"></div>
+          <div class="col-4 box border-top-0" data-cell-index="1" id="1"></div>
+          <div class="col-4 box border-top-0 border-right-0" data-cell-index="2" id="2"></div>
+          <div class="col-4 box border-left-0" data-cell-index="3" id="3"></div>
+          <div class="col-4 box" data-cell-index="4" id="4"></div>
+          <div class="col-4 box border-right-0" data-cell-index="5" id="5"></div>
+          <div class="col-4 box border-bottom-0 border-left-0" data-cell-index="6" id="6"></div>
+          <div class="col-4 box border-bottom-0" data-cell-index="7" id="7"></div>
+          <div class="col-4 box border-bottom-0 border-right-0 " data-cell-index="8" id="8"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Start Login -->
+    <section id="login">
+      <div class="row text-center p-4 col-md-6">
+        <div class="col-md-6">
+          <form id="sign-up" class="form-signin">
+            <h1 class="h3 mb-3 font-weight-normal">Sign up</h1>
+
+            <label for="credentials[email]" class="sr-only">Email address</label>
+            <input type="email" name="credentials[email]" class="form-control" placeholder="Email address" required
+              autofocus />
+
+            <label for="credentials[password]" class="sr-only">Password</label>
+            <input type="password" name="credentials[password]" class="form-control" placeholder="Password" required />
+
+            <label for="credentials[password_confirmation]" class="sr-only">Confirm password</label>
+            <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Password"
+              required />
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">
+              Sign up
+            </button>
+          </form>
+        </div>
+
+        <div class="col-md-6">
+          <form id="sign-in" class="form-signin">
+            <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
+
+            <label for="credentials[email]" class="sr-only">Email address</label>
+            <input type="email" name="credentials[email]" class="form-control" placeholder="Email address" required
+              autofocus />
+
+            <label for="credentials[password]" class="sr-only">Password</label>
+
+            <input type="password" name="credentials[password]" class="form-control" placeholder="Password" required />
+
+
+            <button class="btn btn-lg btn-dark btn-block btn-signin-margin" type="submit">
+              Sign in
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- End login -->
+    <!-- footer -->
+    <footer>
+      <section id="audio-controls">
+        <audio id="music" loop autoplay>
+          <source src='./public/LetsGoToMoon.mp3' type='audio/mp3' />
+        </audio>
+
+        <p onclick="playAudio()" type="button"><i class="far fa-play-circle pr-3"></i></p>
+        <p onclick="pauseAudio()" type="button"><i class="far fa-pause-circle"></i></p>
+      </section>
+      <p class="py-5">Thiago Bardini &copy; 2021</p>
+    </footer>
+  </div>
+
+
+  <script>
+    var x = document.getElementById("music");
+
+    function playAudio() {
+      x.play();
+    }
+
+    function pauseAudio() {
+      x.pause();
+    }
+  </script>
+</body>
+
+</html>
