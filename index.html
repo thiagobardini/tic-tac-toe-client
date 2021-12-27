@@ -23,7 +23,7 @@
       <section id="logo">
         <img src="./public/dodgeVsBitcoin.gif" alt="logo" width="300" class="img-logo" />
         <h1 class="pt-5">Crypto-Tac-Toe</h1>
-        <h2><img src="./public/dodge.gif" />DodgeCoin<span style="color:red"> x </span>Bitcoin<img
+        <h2><img src="./public/dodge.gif" /><span class="hide-title-coins">DodgeCoin</span><span style="color:red"> x </span><span class="hide-title-coins">Bitcoin</span><img
             src="./public/bitcoin.gif" /></h2>
       </section>
       <!-- End logo -->
@@ -125,12 +125,8 @@
 
             <input type="password" name="credentials[password]" class="form-control" placeholder="Password" required />
 
-            <div class="checkbox mb-2">
-              <label>
-                <input type="checkbox" value="remember-me" /> Remember me
-              </label>
-            </div>
-            <button class="btn btn-lg btn-dark btn-block" type="submit">
+
+            <button class="btn btn-lg btn-dark btn-block btn-signin-margin" type="submit">
               Sign in
             </button>
           </form>
@@ -145,7 +141,7 @@
           <source src='./public/LetsGoToMoon.mp3' type='audio/mp3' />
         </audio>
 
-        <p onclick="playAudio()" type="button"><i class="far fa-play-circle"></i></p>
+        <p onclick="playAudio()" type="button"><i class="far fa-play-circle pr-3"></i></p>
         <p onclick="pauseAudio()" type="button"><i class="far fa-pause-circle"></i></p>
       </section>
       <p class="py-5">Thiago Bardini &copy; 2021</p>
